@@ -5,35 +5,36 @@ Taking advantage of Web Apps with Google Apps Script
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENCE)
 
 # Table of contents
-- [Overview](#Overview)
-- [Description](#Description)
-- [Deploy Web Apps](#DeployWebApps)
-- [5 situations for Web Apps](#SituationsforWebApps)
-    - [How to access to Web Apps](#HowtoaccesstoWebApps)
-        - [1. Owner accesses to Web Apps using browser](#HowtoaccesstoWebApps1)
-        - [2. Client users access to Web Apps using browser](#HowtoaccesstoWebApps2)
-        - [3. Owner accesses to Web Apps using Curl, Google Apps Script and so on which don't use browser](#HowtoaccesstoWebApps3)
-        - [4. Client users access to Web Apps using Curl, Google Apps Script and so on which don't use browser](#HowtoaccesstoWebApps4)
-    - [Required parameters for accessing to deployed Web Apps](#Requiredparameters)
-    - [Authorization for scopes](#Authorizationforscopes)
-    - [Access token for accessing to Web Apps](#AccesstokenforaccessingtoWebApps)
-    - [Share project of Web Apps with client users](#Shareproject)
-- [Limitation of simultaneous connection to Web Apps](#Limitationofsimultaneousconnection)
-- [Error messages](#Errormessages)
-- [Confidentiality of scripts for Web Apps](#Confidentialityofscripts)
-- [Sample script of server side](#Samplescriptofserverside)
-- [Sample scripts of client side](#Samplescriptofclientside)
-- [Applications](#Applications)
+- [Overview](#overview)
+- [Description](#description)
+- [Deploy Web Apps](#deploywebApps)
+- [5 situations for Web Apps](#situationsforwebapps)
+    - [How to access to Web Apps](#howtoaccesstowebapps)
+        - [1. Owner accesses to Web Apps using browser](#howtoaccesstowebapps1)
+        - [2. Client users access to Web Apps using browser](#howtoaccesstowebapps2)
+        - [3. Owner accesses to Web Apps using Curl, Google Apps Script and so on which don't use browser](#howtoaccesstowebapps3)
+        - [4. Client users access to Web Apps using Curl, Google Apps Script and so on which don't use browser](#howtoaccesstowebapps4)
+    - [Required parameters for accessing to deployed Web Apps](#requiredparameters)
+    - [Authorization for scopes](#authorizationforscopes)
+    - [Access token for accessing to Web Apps](#accesstokenforaccessingtowebapps)
+    - [Share project of Web Apps with client users](#shareproject)
+- [How to use dev mode from outside](#howtousedevmode) <sup><font color="Red">Added at January 16, 2019</font></sup>
+- [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
+- [Error messages](#errormessages)
+- [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
+- [Sample script of server side](#samplescriptofserverside)
+- [Sample scripts of client side](#samplescriptofclientside)
+- [Applications](#applications)
 
-<a name="Overview"></a>
+<a name="overview"></a>
 # Overview
 This is a report to take advantage of Web Apps with Google Apps Script (GAS).
 
-<a name="Description"></a>
+<a name="description"></a>
 # Description
 There is [Web Apps](https://developers.google.com/apps-script/guides/web) as one of applications using Google Apps Script (GAS). I sometimes use this Web Apps. But I have only a little the information for the specification of Web Apps. So in order to take more advantage of Web Apps, I investigated and summarized about this. The aim of this report is to become one of the basic information for creating various applications using Web Apps with GAS.
 
-<a name="DeployWebApps"></a>
+<a name="deploywebapps"></a>
 # Deploy Web Apps
 When Web Apps is deployed, you can see the following window.
 
@@ -62,7 +63,7 @@ There are **Me** and **User accessing the web app** for "Execute the app as:" an
 
 In this report, I would like to introduce about the specification for Web Apps deployed by 5 situations.
 
-<a name="SituationsforWebApps"></a>
+<a name="situationsforwebapps"></a>
 # 5 situations for Web Apps
 1. **Situation 1**
     - "Execute the app as:" : **Me**
@@ -80,11 +81,11 @@ In this report, I would like to introduce about the specification for Web Apps d
     - "Execute the app as:" : **User accessing the web app**
     - "Who has access to the app:": **Anyone**
 
-<a name="HowtoaccesstoWebApps"></a>
+<a name="howtoaccesstowebapps"></a>
 ## How to access to Web Apps
 There are 5 situations for the deployed Web Apps, as mentioned above. And the methods for accessing to the deployed Web Apps are divided into 2 types. Those are the method which accesses using browser and the method which accesses using Curl, Google Apps Script and so on which don't use browser. Each method is used by the owner of Web Apps and the client users. The flow which summarized them is as follows.
 
-<a name="HowtoaccesstoWebApps1"></a>
+<a name="howtoaccesstowebapps1"></a>
 ### 1. Owner accesses to Web Apps using browser
 ![](images/Browser_owner.png)
 
@@ -95,7 +96,7 @@ There are 5 situations for the deployed Web Apps, as mentioned above. And the me
 - For Situation 3
     - Owner can access and run the script of Web Apps without the login to Google.
 
-<a name="HowtoaccesstoWebApps2"></a>
+<a name="howtoaccesstowebapps2"></a>
 ### 2. Client users access to Web Apps using browser
 ![](images/Browser_users.png)
 
@@ -106,7 +107,7 @@ There are 5 situations for the deployed Web Apps, as mentioned above. And the me
 - For Situation 3
     - Client users can access and run the script of Web Apps without the login to Google.
 
-<a name="HowtoaccesstoWebApps3"></a>
+<a name="howtoaccesstowebapps3"></a>
 ### 3. Owner accesses to Web Apps using Curl, Google Apps Script and so on which don't use browser
 ![](images/Curl_owner.png)
 
@@ -118,7 +119,7 @@ There are 5 situations for the deployed Web Apps, as mentioned above. And the me
     - If the script of Web Apps uses some scopes, owner has to authorize the scopes by own browser.
     - Owner can access and run the script of Web Apps without the login to Google.
 
-<a name="HowtoaccesstoWebApps4"></a>
+<a name="howtoaccesstowebapps4"></a>
 ### 4. Client users access to Web Apps using Curl, Google Apps Script and so on which don't use browser
 ![](images/Curl_users.png)
 
@@ -133,7 +134,7 @@ There are 5 situations for the deployed Web Apps, as mentioned above. And the me
     - If the script of Web Apps uses some scopes, client users have to authorize the scopes by own browser.
     - Client users can access and run the script of Web Apps without the login to Google.
 
-<a name="Requiredparameters"></a>
+<a name="requiredparameters"></a>
 ## Required parameters for accessing to deployed Web Apps
 The simple explanations for above 5 situations were summarized as the following table. Owner and client users mean the owner who deployed Web Apps and the users who use the deployed Web Apps, respectively.
 
@@ -147,7 +148,7 @@ The simple explanations for above 5 situations were summarized as the following 
 
 For example, at situation 5, the script of Web Apps is run as each user (owner and client users). The authorization for the scopes of scripts of Web Apps is required to run the scripts. This authorization has to be done by each user (owner and client users) using own browser. The access token is required for each user (owner and client users) to access to Web Apps. In order to access to Web Apps from client users, the project deployed Web Apps has to be shared with the users.
 
-<a name="Authorizationforscopes"></a>
+<a name="authorizationforscopes"></a>
 ## Authorization for scopes
 - When Web Apps is deployed as **``"Execute the app as:" : Me``** by owner, the authorization screen is automatically opened. When the owner authorizes it, owner and client users can run the scripts of Web Apps as the owner.
 
@@ -169,7 +170,7 @@ For example, at situation 5, the script of Web Apps is run as each user (owner a
 
     - <u>**For example**</u>, in this situation, when ``DriveApp.createFile(blob)`` is run at the script of Web Apps, the file is created in the each user's Google Drive.
 
-<a name="AccesstokenforaccessingtoWebApps"></a>
+<a name="accesstokenforaccessingtowebapps"></a>
 ## Access token for accessing to Web Apps
 - When Web Apps is deployed as **``"Who has access to the app:": Only myself``** or **``"Who has access to the app:": Anyone``** by owner, the owner and client users have to access and run the script of Web Apps with own access token.
 
@@ -186,7 +187,7 @@ For example, at situation 5, the script of Web Apps is run as each user (owner a
 
 - Only when it is **``"Who has access to the app:": Anyone, even anonymous``**, owner and client users can access to Web Apps without the access token.
 
-<a name="Shareproject"></a>
+<a name="shareproject"></a>
 ## Share project of Web Apps with client users
 When client users access to Web Apps with Situation 2 and 5, the owner of Web Apps is required to share the project deployed Web Apps with the client users. If the project is not shared, the error message of ``<title>Google Drive - Access Denied</title>`` is returned. For example, if the project is the container-bound script with Spreadsheet, please share the spreadsheet with the client users.
 
@@ -216,12 +217,71 @@ Logger.log(res);
 ~~~
 
 
-<a name="Limitationofsimultaneousconnection"></a>
+<a name="howtousedevmode"></a>
+# How to use dev mode from outside
+When you deploy Web Apps, you can see the link labeled **latest code**. The link is like ``https://script.google.com/macros/s/###/dev``. The official document of Google is as follows.
+
+>  This URL can only be accessed by users who have edit access to the script. This instance of the app always runs the most recently saved code — not necessarily a formal version — and is intended for quick testing during development.
+
+When you access to the link of **latest code** using your browser under you login to Google, you can access to Web Apps with the dev mode. But if you want to access to Web Apps with the dev mode from outside, there are no documents for the method. Here, it introduces such method.
+
+When it accesses to the URL of **latest code** from outside, the login screen is returned. **This situation indicates that it is required to use the access token for accessing to the URL.** So as a sample, I show you the sample curl command as follows. The requirement scope is ``https://www.googleapis.com/auth/drive``.
+
+### Requesting to doGet()
+~~~bash
+curl -L \
+  -H "Authorization: Bearer ### access token ###" \
+  "https://script.google.com/macros/s/#####/dev"
+~~~
+
+Also from [Standard Query Parameters](https://developers.google.com/drive/api/v3/query-parameters), you can use the following method using the access token as the query parameter.
+
+~~~bash
+curl -L "https://script.google.com/macros/s/#####/dev?access_token=### access token ###"
+~~~
+
+- Replace ``### access token ###`` to the value retrieved by ScriptApp.getOAuthToken().
+- Replace ``https://script.google.com/macros/s/#####/dev`` to your endpoint retrieved by deploying Web Apps.
+
+### Requesting to doPost()
+~~~bash
+curl -L \
+  -H "Authorization: Bearer ### access token ###" \
+  -d "key=value" \
+  "https://script.google.com/macros/s/#####/dev"
+~~~
+
+Also from [Standard Query Parameters](https://developers.google.com/drive/api/v3/query-parameters), you can use the following method using the access token as the query parameter.
+
+~~~bash
+curl -L \
+  -d "key=value" \
+  "https://script.google.com/macros/s/#####/dev?access_token=### access token ###"
+~~~
+
+- Replace ``### access token ###`` to the value retrieved by ScriptApp.getOAuthToken().
+- Replace ``https://script.google.com/macros/s/#####/dev`` to your endpoint retrieved by deploying Web Apps.
+- I used ``-d "key=value"`` for the post method. If you don't want to put the values, please replace to ``-d ""``.
+
+
+## Note
+- By using above method, you can use the latest script of Web Apps from outside.
+- If you want to use the dev mode as simple test, there is a simple method for retrieving the access token.
+    1. Login to Google and open the script editor.
+    1. Copy and paste the following script.
+        - ``function getAccesstoken() {Logger.log(ScriptApp.getOAuthToken())} // DriveApp.getFiles()``
+    1. Run the function ``getAccesstoken()`` and retrieve the access token.
+
+By this, you can test it using the retrieved access token.
+
+- This method was answered at [https://stackoverflow.com/a/54191688/7108653](https://stackoverflow.com/a/54191688/7108653).
+
+<a name="limitationofsimultaneousconnection"></a>
 # Limitation of simultaneous connection to Web Apps
 The limitation of simultaneous connection is also investigated. The fetchAll method added by recent Google's update was used for this investigation. [I have reported that the fetchAll method is worked by the asynchronous processing.](https://gist.github.com/tanaikech/c0f383034045ab63c19604139ecb0728) This can be used for measuring the limitation of simultaneous connection. From the result of measurement, it was found that the limitation of simultaneous connection to one Web Apps server is under 30. [This is the same with scripts.run method of Apps Script API.](https://github.com/tanaikech/RunAll)
 
 
-<a name="Errormessages"></a>
+<a name="errormessages"></a>
 # Error messages
 When the error messages are returned from Web Apps, you can see the messages into the tag of ``<title>### Error message ###</title>`` including in HTML output. From the error messages, you can know the reason of the error using the following table. I think that there may be other errors. So if you found them, when you tell me them, I'm glad.
 
@@ -234,7 +294,7 @@ When the error messages are returned from Web Apps, you can see the messages int
 | User accessing the web app,<br>Me | Anyone | Users | 403 | Google Drive - Access Denied | Project of Web Apps is not shared with users. |
 | User accessing the web app,<br>Me | Only myself | Users | 404 | Google Drive -- Page Not Found | Users cannot access. |
 
-<a name="Confidentialityofscripts"></a>
+<a name="confidentialityofscripts"></a>
 # Confidentiality of scripts for Web Apps
 - If you don't want to publish the scripts of Web Apps, you can achieve it using Situation 3.
     - In this case, anybody can access the Web Apps.
@@ -242,7 +302,7 @@ When the error messages are returned from Web Apps, you can see the messages int
 - If you want to make only the special users access to Web Apps, you can achieve it using Situation 2 and 5.
     - In this case, the scripts of Web Apps can be seen by the users, because the project of scripts has to be shared with the users.
 
-<a name="Samplescriptofserverside"></a>
+<a name="samplescriptofserverside"></a>
 # Sample script of server side
 The simple sample-script of server side (Web Apps) is as follows. When the client users access to this server, the server returns URL query and the request body which were sent by the client. And also a text file is created. In this script, the scope of ``https://www.googleapis.com/auth/drive`` is used for creating a text file. So when you use this script at Situation 4 and Situation 5 as mentioned above, at first, please authorize the scope by accessing to Web Apps using your browser. After the authorization was done, the text file is created by requesting the following scripts for the client side.
 
@@ -269,7 +329,7 @@ function doPost() {
 }
 ~~~
 
-<a name="Samplescriptofclientside"></a>
+<a name="samplescriptofclientside"></a>
 # Sample scripts of client side
 ## Access with access token
 ### GET
@@ -371,7 +431,7 @@ Logger.log(res);
 
 ---
 
-<a name="Applications"></a>
+<a name="applications"></a>
 ## Applications
 Here, I would like to introduce the applications of Web Apps. If you can introduce your applications, please tell me. I would like to introduce them here.
 
@@ -442,17 +502,17 @@ When you use this, please do URL encode for the range.
 
 ---
 
-<a name="Licence"></a>
+<a name="licence"></a>
 # Licence
 [MIT](LICENCE)
 
-<a name="Author"></a>
+<a name="author"></a>
 # Author
 [Tanaike](https://tanaikech.github.io/about/)
 
 If you have any questions, feel free to tell me using e-mail tanaike@hotmail.com Also if you found new information related to this report and tell me them, I am glad. I would like to update this report.
 
-<a name="Update_History"></a>
+<a name="update_history"></a>
 # Update History
 * v1.0.0 (April 26, 2018)
 
