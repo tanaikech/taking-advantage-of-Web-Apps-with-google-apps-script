@@ -497,14 +497,10 @@ When you use this, please do URL encode for the range.
 ### 3. How to get a data range of the Sheet
 [https://stackoverflow.com/questions/48917258/how-to-get-a-data-range-of-the-sheet](https://stackoverflow.com/questions/48917258/how-to-get-a-data-range-of-the-sheet)
 
-
-# References
-- [Web Apps](https://developers.google.com/apps-script/guides/web)
-
 ---
 
 <a name="samplesituations"></a>
-## Sample situations
+# Sample situations
 Here, I would like to introduce the sample situations with Web Apps. Those are threads of Stackoverflow. You can see the actual situations using Web Apps from them.
 
 - [How to upload a file via POST (doPost) to a Google Script's Web App?](https://stackoverflow.com/a/42217817)
@@ -519,6 +515,11 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Trying to use dev mode with GAS doPOST](https://stackoverflow.com/a/54191688)
 - [Google Sheets View Only Protection for User Running App Script](https://stackoverflow.com/a/54452680)
 - [How to assign UrlFetchApp with basic authorization to button?](https://stackoverflow.com/a/54622357)
+
+---
+
+# References
+- [Web Apps](https://developers.google.com/apps-script/guides/web)
 
 ---
 
