@@ -25,6 +25,7 @@ Taking advantage of Web Apps with Google Apps Script
 - [Sample script of server side](#samplescriptofserverside)
 - [Sample scripts of client side](#samplescriptofclientside)
 - [Applications](#applications)
+- [Sample situations](#samplesituations)
 
 <a name="overview"></a>
 # Overview
@@ -499,6 +500,25 @@ When you use this, please do URL encode for the range.
 
 # References
 - [Web Apps](https://developers.google.com/apps-script/guides/web)
+
+---
+
+<a name="samplesituations"></a>
+## Sample situations
+Here, I would like to introduce the sample situations with Web Apps. Those are threads of Stackoverflow. You can see the actual situations using Web Apps from them.
+
+- [How to upload a file via POST (doPost) to a Google Script's Web App?](https://stackoverflow.com/a/42217817)
+- [How to use importXML function with a file from Google Drive?](https://stackoverflow.com/a/45991519)
+- [Retrieving the output of a Google Apps script to local computer](https://stackoverflow.com/a/46106339)
+- [URL to upload to Google Drive](https://stackoverflow.com/a/47841498)
+- [Using AuthToken obtained via ScriptApp.getAuthToken() to call web apps in GAS](https://stackoverflow.com/a/48840870)
+- [Is there any limit on number of concurrent hits on Google App Script Web App](https://stackoverflow.com/a/50033976)
+- [Uploading files to pre-set Google Drive account using API?](https://stackoverflow.com/a/50206254)
+- [can't open Slack dialog through google apps scripts](https://stackoverflow.com/a/51093107)
+- [using an http request to update google spreadsheet](https://stackoverflow.com/a/53383507)
+- [Trying to use dev mode with GAS doPOST](https://stackoverflow.com/a/54191688)
+- [Google Sheets View Only Protection for User Running App Script](https://stackoverflow.com/a/54452680)
+- [How to assign UrlFetchApp with basic authorization to button?](https://stackoverflow.com/a/54622357)
 
 ---
 
