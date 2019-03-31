@@ -405,7 +405,7 @@ $ curl -L -d '{"key1": "value1", "key2": "value2"}' "https://script.google.com/m
 }
 ~~~
 
-### Pattern 3
+### Pattern 4
 #### Sample curl
 ~~~bash
 $ curl -L -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' "https://script.google.com/macros/s/#####/exec?key3=value3"
