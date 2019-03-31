@@ -18,7 +18,8 @@ Taking advantage of Web Apps with Google Apps Script
     - [Authorization for scopes](#authorizationforscopes)
     - [Access token for accessing to Web Apps](#accesstokenforaccessingtowebapps)
     - [Share project of Web Apps with client users](#shareproject)
-- [How to use dev mode from outside](#howtousedevmode) <sup><font color="Red">Added at January 16, 2019</font></sup>
+- [How to use dev mode from outside](#howtousedevmode)
+- [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at March 31, 2019</font></sup>
 - [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
 - [Error messages](#errormessages)
 - [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
@@ -277,9 +278,171 @@ By this, you can test it using the retrieved access token.
 
 - This method was answered at [https://stackoverflow.com/a/54191688/7108653](https://stackoverflow.com/a/54191688/7108653).
 
+
+<a name="eventobject"></a>
+# Event object of Web Apps
+When Web Apps is used, ``doGet(e)`` and ``doPost(e)`` are used for the GET and POST method, respectively. Here, it introduces the event object of ``e``.
+
+## Sample script of Web Apps
+The sample script for GET and POST method of Web Apps is as follows.
+
+~~~javascript
+function doGet(e) {
+  e.method = "GET";
+  return ContentService.createTextOutput(JSON.stringify(e)).setMimeType(ContentService.MimeType.JSON);
+}
+
+function doPost(e) {
+  e.method = "POST";
+  return ContentService.createTextOutput(JSON.stringify(e)).setMimeType(ContentService.MimeType.JSON);
+}
+~~~
+
+## Sample client for accessing to Web Apps.
+As a sample client, curl is used.
+
+### Pattern 1
+#### Sample curl
+~~~bash
+$ curl -L "https://script.google.com/macros/s/#####/exec?key1=value1&key2=value2&key3=value3"
+~~~
+
+#### Result
+~~~json
+{
+  "parameter": {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": "value3"
+  },
+  "contextPath": "",
+  "contentLength": -1,
+  "queryString": "key1=value1&key2=value2&key3=value3",
+  "parameters": {
+    "key1": [
+      "value1"
+    ],
+    "key2": [
+      "value2"
+    ],
+    "key3": [
+      "value3"
+    ]
+  },
+  "method": "GET"
+}
+~~~
+
+### Pattern 2
+#### Sample curl
+~~~bash
+$ curl -L -d "key1=value1" -d "key2=value2" "https://script.google.com/macros/s/#####/exec?key3=value3"
+~~~
+
+#### Result
+~~~json
+{
+  "parameter": {
+    "key1": "value1",
+    "key2": "value2",
+    "key3": "value3"
+  },
+  "contextPath": "",
+  "contentLength": 23,
+  "queryString": "key3=value3",
+  "parameters": {
+    "key1": [
+      "value1"
+    ],
+    "key2": [
+      "value2"
+    ],
+    "key3": [
+      "value3"
+    ]
+  },
+  "postData": {
+    "type": "application/x-www-form-urlencoded",
+    "length": 23,
+    "contents": "key1=value1&key2=value2",
+    "name": "postData"
+  },
+  "method": "POST"
+}
+~~~
+
+### Pattern 3
+#### Sample curl
+~~~bash
+$ curl -L -d '{"key1": "value1", "key2": "value2"}' "https://script.google.com/macros/s/#####/exec?key3=value3"
+~~~
+
+#### Result
+~~~json
+{
+  "parameter": {
+    "key3": "value3",
+    "{\"key1\": \"value1\", \"key2\": \"value2\"}": ""
+  },
+  "contextPath": "",
+  "contentLength": 36,
+  "queryString": "key3=value3",
+  "parameters": {
+    "key3": [
+      "value3"
+    ],
+    "{\"key1\": \"value1\", \"key2\": \"value2\"}": [
+      ""
+    ]
+  },
+  "postData": {
+    "type": "application/x-www-form-urlencoded",
+    "length": 36,
+    "contents": "{\"key1\": \"value1\", \"key2\": \"value2\"}",
+    "name": "postData"
+  },
+  "method": "POST"
+}
+~~~
+
+### Pattern 3
+#### Sample curl
+~~~bash
+$ curl -L -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' "https://script.google.com/macros/s/#####/exec?key3=value3"
+~~~
+
+#### Result
+Although the JSON object is sent as ``application/json`` and Web Apps recognizes the data as ``application/json``, the JSON parse of ``contents`` is not parsed. Please be careful this. In this case, it is required to parse using ``JSON.parse()``.
+
+~~~json
+{
+  "parameter": {
+    "key3": "value3"
+  },
+  "contextPath": "",
+  "contentLength": 36,
+  "queryString": "key3=value3",
+  "parameters": {
+    "key3": [
+      "value3"
+    ]
+  },
+  "postData": {
+    "type": "application/json",
+    "length": 36,
+    "contents": "{\"key1\": \"value1\", \"key2\": \"value2\"}",
+    "name": "postData"
+  },
+  "method": "POST"
+}
+~~~
+
+
 <a name="limitationofsimultaneousconnection"></a>
 # Limitation of simultaneous connection to Web Apps
 The limitation of simultaneous connection is also investigated. The fetchAll method added by recent Google's update was used for this investigation. [I have reported that the fetchAll method is worked by the asynchronous processing.](https://gist.github.com/tanaikech/c0f383034045ab63c19604139ecb0728) This can be used for measuring the limitation of simultaneous connection. From the result of measurement, it was found that the limitation of simultaneous connection to one Web Apps server is under 30. [This is the same with scripts.run method of Apps Script API.](https://github.com/tanaikech/RunAll)
+
+When ["Current limitations" of "Quotas for Google Services"](https://developers.google.com/apps-script/guides/services/quotas#current_limitations), it says that the simultaneous executions is 30.
 
 
 <a name="errormessages"></a>
