@@ -678,6 +678,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Trying to use dev mode with GAS doPOST](https://stackoverflow.com/a/54191688)
 - [Google Sheets View Only Protection for User Running App Script](https://stackoverflow.com/a/54452680)
 - [How to assign UrlFetchApp with basic authorization to button?](https://stackoverflow.com/a/54622357)
+- [Protecting Cells of Spreadsheet that Users Copied from Your Google Drive to User's Google Drive using Google Apps Script](https://gist.github.com/tanaikech/847ea7e3e27a4a22004faa88d7b4dedb)
 
 ---
 
