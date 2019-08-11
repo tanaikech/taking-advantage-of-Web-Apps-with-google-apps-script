@@ -25,6 +25,7 @@ Taking advantage of Web Apps with Google Apps Script
 - [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
 - [Sample script of server side](#samplescriptofserverside)
 - [Sample scripts of client side](#samplescriptofclientside)
+- [Status code from Web Apps](#statuscodefromwebapps)
 - [Applications](#applications)
 - [Sample situations](#samplesituations)
 
@@ -593,6 +594,100 @@ var res = UrlFetchApp.fetch(url, params);
 Logger.log(res);
 ~~~
 
+<a name="statuscodefromwebapps"></a>
+# Status code from Web Apps
+Here, I would like to introduce the status code returned from Web Apps.
+
+## Preparation:
+As the preparation, Web Apps was deployed with "Execute the app as" and "Who has access to the app" as `Me` and `Anyone, even anonymous`, respectively. The sample script for Web Apps is as follows.
+
+```javascript
+function doGet(e) {return ContentService.createTextOutput("GET: Done.")}
+```
+
+## Experiment:
+### Using Google Apps Script:
+At first, the status code was checked using Google Apps Script. The deployed Web Apps was requested with the following script.
+
+```javascript
+function myFunction() {
+  var url_exec = "https://script.google.com/macros/s/###/exec";
+  var url_dev = "https://script.google.com/macros/s/###/dev";
+  var res = UrlFetchApp.fetchAll([{url: url_exec}, {url: url_dev}]);
+  res.forEach(function(e) {
+    Logger.log(e.getResponseCode());
+  });
+}
+```
+
+In this case, the status code of `200` was obtained for both endpoints of `exec` and `dev`.
+
+### using Curl:
+In order to retrieve the status code with curl, `curl -s -o /dev/null -w "%{http_code}" http://www.example.org/` was used. This is from [this thread](https://superuser.com/questions/272265/getting-curl-to-output-http-status-code). Here, the status code was investigated using the curl command. Because the curl can access by 2 kinds of request by the options as showing below.
+
+1. [`--include`](https://curl.haxx.se/docs/manpage.html#-i): Include the HTTP response headers in the output. The HTTP response headers can include things like server name, cookies, date of the document, HTTP version and more...
+
+2. [`--head`](https://curl.haxx.se/docs/manpage.html#-I): (HTTP FTP FILE) Fetch the headers only! HTTP-servers feature the command HEAD which this uses to get nothing but the header of a document. When used on an FTP or FILE file, curl displays the file size and last modification time only.
+
+Using above options, the following 4 patterns were investigated.
+
+1. Request to the endpoint of `https://script.google.com/macros/s/###/exec` using the option `--include`.
+	- `curl -sL --include -o /dev/null -w "%{http_code}" "https://script.google.com/macros/s/###/exec"`
+	- `200` was returned.
+1. Request to the endpoint of `https://script.google.com/macros/s/###/dev` using the option `--include`.
+	- `curl -sL --include -o /dev/null -w "%{http_code}" "https://script.google.com/macros/s/###/dev"`
+	- `200` was returned.
+1. Request to the endpoint of `https://script.google.com/macros/s/###/exec` using the option `--head`.
+	- `curl -sL --head -o /dev/null -w "%{http_code}" "https://script.google.com/macros/s/###/exec"`
+	- **`403` was returned.**
+1. Request to the endpoint of `https://script.google.com/macros/s/###/dev` using the option `--head`.
+	- `curl -sL --head -o /dev/null -w "%{http_code}" "https://script.google.com/macros/s/###/dev"`
+	- `200` was returned.
+
+As the result, it was found that when the Web Apps of the endpoint of `https://script.google.com/macros/s/###/exec` was requested with the option `--head`, the status code of `403` was obtained.
+
+## Result and discussions:
+When the option `--head` is used for the curl command, from the document, this means that it requests only header and doesn't request the body. By this, it was found that the status code of `403` was returned.
+
+Here, why was the status code of `200` returned for both options of `--include` and `--head` when it requests to the endpoint of `dev`? It is considered that the reason of this is due to that the login screen was returned. When the endpoint of `dev` is accessed, it is required to use the access token. When the access token is not used, the login screen is returned. In this case, the status code of `200` is returned. As the test case, when the access token is used for the endpoint of `dev` using below curl command,
+
+```bash
+curl -sL --head -H "Authorization: Bearer ###" -o /dev/null -w "%{http_code}" "https://script.google.com/macros/s/###/dev"
+```
+
+The status code of `403` was returned. From this result, the following results were obtained.
+
+- When only the header is retrieved under that the Web Apps works fine, `403` is returned.
+- When the login screen is returned, `200` is returned.
+
+## Applications for this situation
+###
+As one of applications using this situation, there is the registration of webhook at [Trello's REST API](https://developers.trello.com/reference/).
+
+When the Web Apps which was deployed as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous` is registered as the webhook, an error of `{"message":"URL (https://script.google.com/macros/s/###/exec) did not return 200 status code, got 403","error":"ERROR"}` occurs. The reason of this error is due to above situation. So as the workaround for the registration, you can use the following flow.
+
+- Before you run the script, please set the Web Apps as follows.
+	- "Execute the app as" and "Who has access to the app" are `Me` and `Only myself`, respectively.
+- After the response of like `{"id":"###","description":"sample","idModel":"###","callbackURL":"https://script.google.com/macros/s/###/exec","active":true}` was retrieved, please set the Web Apps as follows.
+	- "Execute the app as" and "Who has access to the app" are `Me` and `Anyone, even anonymous`, respectively.
+
+By this flow, the webhook can be used.
+
+#### Sample script
+This is a sample script of Google Apps Script for the registration of webhook URL.
+
+```javascript
+var url = 'https://api.trello.com/1/tokens/###/webhooks/?key=###'
+var payload = { 
+  "callbackURL": "https://script.google.com/macros/s/###/exec",
+  "idModel":"###",
+  "description": "sample"
+}
+var options = {method: "post", payload: payload};
+var res = UrlFetchApp.fetch(url,options);
+Logger.log(res.getContentText())
+```
+
 ---
 
 <a name="applications"></a>
@@ -679,7 +774,8 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Google Sheets View Only Protection for User Running App Script](https://stackoverflow.com/a/54452680)
 - [How to assign UrlFetchApp with basic authorization to button?](https://stackoverflow.com/a/54622357)
 - [Protecting Cells of Spreadsheet that Users Copied from Your Google Drive to User's Google Drive using Google Apps Script](https://gist.github.com/tanaikech/847ea7e3e27a4a22004faa88d7b4dedb)
-- [Maintaining protected ranges while copying a file](https://stackoverflow.com/q/57051589/7108653)
+- [Maintaining protected ranges while copying a file](https://stackoverflow.com/a/57066732)
+- [How to create webhook from Google Apps Script using the “exec” url rather than “dev” url. Exec returns 403 Error](https://stackoverflow.com/a/57426103)
 
 ---
 
