@@ -776,6 +776,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Protecting Cells of Spreadsheet that Users Copied from Your Google Drive to User's Google Drive using Google Apps Script](https://gist.github.com/tanaikech/847ea7e3e27a4a22004faa88d7b4dedb)
 - [Maintaining protected ranges while copying a file](https://stackoverflow.com/a/57066732)
 - [How to create webhook from Google Apps Script using the “exec” url rather than “dev” url. Exec returns 403 Error](https://stackoverflow.com/a/57426103)
+- [One Time Download for Google Drive](https://github.com/tanaikech/One_Time_Download_for_Google_Drive)
 
 ---
 
