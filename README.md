@@ -777,6 +777,10 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Maintaining protected ranges while copying a file](https://stackoverflow.com/a/57066732)
 - [How to create webhook from Google Apps Script using the “exec” url rather than “dev” url. Exec returns 403 Error](https://stackoverflow.com/a/57426103)
 - [One Time Download for Google Drive](https://github.com/tanaikech/One_Time_Download_for_Google_Drive)
+- [Open a HTML file with data using Google Script](https://stackoverflow.com/q/58055279)
+- [Receiving Access-Control-Allow-Origin errors when submiting a form via Google Apps Script](https://stackoverflow.com/q/58773436)
+- [How to do curl POST of CSV data?](https://stackoverflow.com/q/58847822)
+- [How to POST from JS or node.js?](https://stackoverflow.com/q/58849644)
 
 ---
 
