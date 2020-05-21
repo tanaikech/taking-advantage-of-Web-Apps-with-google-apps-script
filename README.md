@@ -910,6 +910,22 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Receiving Access-Control-Allow-Origin errors when submiting a form via Google Apps Script](https://stackoverflow.com/q/58773436)
 - [How to do curl POST of CSV data?](https://stackoverflow.com/q/58847822)
 - [How to POST from JS or node.js?](https://stackoverflow.com/q/58849644)
+- [Google Drive API: Create Folder: Allow conflict error if folder by name exists](https://stackoverflow.com/q/59184790)
+- [How to display classic Google Sites search box query in home page?](https://stackoverflow.com/q/57257600)
+- [Is it possible to insert a Horizontal Rule with Google Docs API?](https://stackoverflow.com/q/59501947)
+- [How to send an e.parameter to Google Apps Script using PHP and cURL](https://stackoverflow.com/q/59910628)
+- [Apps Script: Import and parse a HTML file from Drive to Sheets](https://stackoverflow.com/q/59933492)
+- [How to get all tab names/gid's with google.visualization from google spreadsheet?](https://stackoverflow.com/q/59933529)
+- [Google spreadsheet how to insert column after the last column](https://stackoverflow.com/q/60007252)
+- [Is it possible to set Chart options through the Google Sheets API?](https://stackoverflow.com/q/60309878)
+- [Upload a word doc and an google app script. Convert the word doc to a google doc and then run the app script clean up on it?](https://stackoverflow.com/q/60399008)
+- [Which are the right scopes to run request on Apps Script API](https://stackoverflow.com/q/60650940)
+- [google sheet REST API : how find location of cell with some value](https://stackoverflow.com/q/60763776)
+- [Convert Google Sheet to PDF and store in same Google Drive folder as sheet](https://stackoverflow.com/q/60933742)
+- [Can I download a Google Document, via the Google Docs API without an OAuth consent screen?](https://stackoverflow.com/q/61399708)
+- [Link to a specific sheet in published Google Sheet](https://stackoverflow.com/q/61437687)
+- [How can one write to a publicly available Google sheet (without authorization) in Python?](https://stackoverflow.com/q/61484573)
+- [Use path/slug after Web App's base url in Google Apps Script](https://stackoverflow.com/q/61729358)
 
 ---
 
