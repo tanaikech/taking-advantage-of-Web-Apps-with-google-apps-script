@@ -19,7 +19,7 @@
   - [Access token for accessing to Web Apps](#accesstokenforaccessingtowebapps)
   - [Share project of Web Apps with client users](#shareproject)
 - [How to use dev mode from outside](#howtousedevmode)
-- [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at March 31, 2019</font></sup>
+- [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at May 21, 2020</font></sup>
 - [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
 - [Error messages](#errormessages)
 - [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
