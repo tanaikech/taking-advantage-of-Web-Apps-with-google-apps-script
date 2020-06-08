@@ -882,6 +882,10 @@ When you use this, please do URL encode for the range.
 
 [https://stackoverflow.com/questions/48917258/how-to-get-a-data-range-of-the-sheet](https://stackoverflow.com/questions/48917258/how-to-get-a-data-range-of-the-sheet)
 
+### 4. Enhanced Custom Function for Google Spreadsheet using Web Apps as Wrapper
+
+[https://github.com/tanaikech/Enhanced-Custom-Function-for-Google-Spreadsheet-using-Web-Apps-as-Wrapper](https://github.com/tanaikech/Enhanced-Custom-Function-for-Google-Spreadsheet-using-Web-Apps-as-Wrapper)
+
 ---
 
 <a name="samplesituations"></a>
@@ -928,6 +932,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Use path/slug after Web App's base url in Google Apps Script](https://stackoverflow.com/q/61729358)
 - [Is it possible to get fresh Google Slides presentation data in AppsScript?](https://stackoverflow.com/q/62166790)
 - [Error when running Youtube Data Service in App Scripts (js) – Daily Limit for Unauthenticated Use Exceeded](https://stackoverflow.com/q/62205747)
+
 ---
 
 # References
