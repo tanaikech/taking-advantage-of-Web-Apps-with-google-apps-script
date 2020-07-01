@@ -689,6 +689,10 @@ As the result, in order to prevent the error related to CORS, it was found the f
 
 2. For POST method, the data is required to be converted to the string and sent to Web Apps.
 
+### Reference
+
+- [Class ContentService](https://developers.google.com/apps-script/reference/content/content-service)
+
 <a name="confidentialityofscripts"></a>
 
 # Confidentiality of scripts for Web Apps
