@@ -681,7 +681,7 @@ function post() {
 }
 ```
 
-## Result
+## Summary
 
 As the result, in order to prevent the error related to CORS, it was found the following important points.
 
