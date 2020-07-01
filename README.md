@@ -681,6 +681,14 @@ function post() {
 }
 ```
 
+## Result
+
+As the result, in order to prevent the error related to CORS, it was found the following important points.
+
+1. It is required to return `ContentService.createTextOutput()` and `ContentService.createTextOutput("done")` from `doGet` and `doPost`.
+
+2. For POST method, the data is required to be converted to the string and sent to Web Apps.
+
 <a name="confidentialityofscripts"></a>
 
 # Confidentiality of scripts for Web Apps
@@ -915,8 +923,6 @@ The status code of `403` was returned. From this result, the following results w
 - When the login screen is returned, `200` is returned.
 
 ## Applications for this situation
-
-###
 
 As one of applications using this situation, there is the registration of webhook at [Trello's REST API](https://developers.trello.com/reference/).
 
