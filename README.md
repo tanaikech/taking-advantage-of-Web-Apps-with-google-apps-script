@@ -22,6 +22,7 @@
 - [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at May 21, 2020</font></sup>
 - [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
 - [Error messages](#errormessages)
+- [CORS in Web Apps](#corsinwebapps) <sup><font color="Red">Added at July 1, 2020</font></sup>
 - [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
 - [Sample script of server side](#samplescriptofserverside)
 - [Sample scripts of client side](#samplescriptofclientside)
@@ -543,6 +544,143 @@ When the error messages are returned from Web Apps, you can see the messages int
 | User accessing the web app,<br>Me | Anyone                    | Users           | 403         | Google Drive - Access Denied                     | Project of Web Apps is not shared with users.                                                                          |
 | User accessing the web app,<br>Me | Only myself               | Users           | 404         | Google Drive -- Page Not Found                   | Users cannot access.                                                                                                   |
 
+<a name="corsinwebapps"></a>
+
+# CORS in Web Apps
+
+In this section, I would like to introduce CORS in Web Apps. As a sample situation, it supposes that Web Apps is requested using GET and POST method with Javascript. The settings of Web Apps are `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+
+The Javascript of the client side, which was used for testing, is as follows.
+
+```javascript
+const url = "https://script.google.com/macros/s/###/exec";
+
+function get() {
+  fetch(url)
+    .then((res) => {
+      console.log(res.status);
+      return res.text();
+    })
+    .then((res) => console.log(res));
+}
+
+function post() {
+  const obj = { key: "value" };
+  fetch(url, { method: "POST", body: JSON.stringify(obj) })
+    .then((res) => {
+      console.log(res.status);
+      return res.text();
+    })
+    .then((res) => console.log(res));
+}
+```
+
+## Sample script 1
+
+### Script for Web Apps
+
+```javascript
+const doGet = (e) => {};
+const doPost = (e) => {};
+```
+
+### Result
+
+For both requests, the following response is returned. **Error related to CORS occurs.**
+
+> Access to fetch at 'https://script.google.com/macros/s/###/exec' from origin 'https://###script.googleusercontent.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+## Sample script 2
+
+### Script for Web Apps
+
+```javascript
+const doGet = (e) => HtmlService.createHtmlOutput();
+const doPost = (e) => HtmlService.createHtmlOutput();
+```
+
+### Result
+
+For both requests, the following response is returned. **Error related to CORS occurs.**
+
+> Access to fetch at 'https://script.google.com/macros/s/###/exec' from origin 'https://###script.googleusercontent.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+
+## Sample script 3
+
+### Script for Web Apps
+
+```javascript
+const doGet = (e) => ContentService.createTextOutput();
+const doPost = (e) => ContentService.createTextOutput();
+```
+
+### Result
+
+For both requests, the following response is returned. **No error occurs.**
+
+> 200
+
+## Sample script 4
+
+### Script for Web Apps
+
+```javascript
+const doGet = (e) => ContentService.createTextOutput();
+const doPost = (e) => ContentService.createTextOutput();
+```
+
+### Script for Javascript
+
+In this case, axios is used. This sample referred [Stackoverflow](https://stackoverflow.com/q/62587453).
+
+```javascript
+const url = "https://script.google.com/macros/s/###/exec";
+
+async function get() {
+  const res = await axios.get(url);
+  console.log(res);
+}
+
+async function post() {
+  const obj = { key: "value" };
+  const res = await axios.post(url, obj);
+  console.log(res);
+}
+```
+
+In this case, at `post()`, the object is not converted to the string with `JSON.stringify`.
+
+### Result
+
+- **No error occurs at `get()`.**
+- **Error related to CORS occurs at `post()`.**
+
+### Removing this error
+
+Please convert the object to the string with `JSON.stringify`. By this, the error can be removed. **No error occurs.**
+
+```javascript
+async function post() {
+  const obj = { key: "value" };
+  const res = await axios.post(url, JSON.stringify(obj));
+  console.log(res);
+}
+```
+
+On the other hand, when the following script is used, **No error occurs at `post()`.**
+
+```javascript
+function post() {
+  const obj = { key: "value" };
+  fetch(url, { method: "POST", body: obj })
+    .then((res) => {
+      console.log(res.status);
+      return res.text();
+    })
+    .then((res) => console.log(res));
+}
+```
+
 <a name="confidentialityofscripts"></a>
 
 # Confidentiality of scripts for Web Apps
@@ -932,6 +1070,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Use path/slug after Web App's base url in Google Apps Script](https://stackoverflow.com/q/61729358)
 - [Is it possible to get fresh Google Slides presentation data in AppsScript?](https://stackoverflow.com/q/62166790)
 - [Error when running Youtube Data Service in App Scripts (js) – Daily Limit for Unauthenticated Use Exceeded](https://stackoverflow.com/q/62205747)
+- [Trouble accessing Google Sheet as a TSV file](https://stackoverflow.com/q/62611127/7108653)
 
 ---
 
