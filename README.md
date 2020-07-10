@@ -1081,6 +1081,8 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Is it possible to get fresh Google Slides presentation data in AppsScript?](https://stackoverflow.com/q/62166790)
 - [Error when running Youtube Data Service in App Scripts (js) – Daily Limit for Unauthenticated Use Exceeded](https://stackoverflow.com/q/62205747)
 - [Trouble accessing Google Sheet as a TSV file](https://stackoverflow.com/q/62611127/7108653)
+- [Get data from Google Sheets without Sheets API](https://stackoverflow.com/q/62732791)
+- [Retrieve text in namedRange with Google Docs API](https://stackoverflow.com/q/62797150/7108653)
 
 ---
 
