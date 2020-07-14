@@ -667,7 +667,7 @@ async function post() {
 }
 ```
 
-On the other hand, when the following script is used, **No error occurs at `post()`.**
+When above script didn't work, please set `"Content-Type": "text/plain"` to the header and test it again. On the other hand, when the following script is used, **No error occurs at `post()`.**
 
 ```javascript
 function post() {
