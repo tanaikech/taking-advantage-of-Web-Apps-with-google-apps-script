@@ -858,7 +858,7 @@ Logger.log(res);
 
 # Sample scripts of client side by various languages
 
-Now, you can see the following 11 sample scripts at [https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5](https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5).
+Now, you can see the following 11 sample scripts at **[https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5](https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5)**.
 
 1. curl
 2. Google Apps Script
