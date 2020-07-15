@@ -26,6 +26,7 @@
 - [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
 - [Sample script of server side](#samplescriptofserverside)
 - [Sample scripts of client side](#samplescriptofclientside)
+- [Sample scripts of client side by various languages](#samplescriptvariouslanguages) <sup><font color="Red">Added at July 15, 2020</font></sup>
 - [Status code from Web Apps](#statuscodefromwebapps)
 - [Applications](#applications)
 - [Sample situations](#samplesituations)
@@ -312,6 +313,8 @@ curl -L \
 By this, you can test it using the retrieved access token.
 
 - This method was answered at [https://stackoverflow.com/a/54191688/7108653](https://stackoverflow.com/a/54191688/7108653).
+
+- The reason that `-d` is used instead of `-X POST` can be seen at [this thread](https://stackoverflow.com/q/57103278).
 
 <a name="eventobject"></a>
 
@@ -850,6 +853,24 @@ var url = "https://script.google.com/macros/s/#####/exec?key3=value3";
 var res = UrlFetchApp.fetch(url, params);
 Logger.log(res);
 ```
+
+<a name="samplescriptvariouslanguages"></a>
+
+# Sample scripts of client side by various languages
+
+Now, you can see the following 11 sample scripts at [https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5](https://gist.github.com/tanaikech/a72aab0242012362c46ec69031c720d5).
+
+1. curl
+2. Google Apps Script
+3. Javascript
+4. ajax
+5. Node
+6. axios
+7. angular
+8. go
+9. python
+10. php
+11. powershell
 
 <a name="statuscodefromwebapps"></a>
 
