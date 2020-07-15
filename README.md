@@ -864,7 +864,7 @@ Now, you can see the following 11 sample scripts at **[https://gist.github.com/t
 2. Google Apps Script
 3. Javascript
 4. ajax
-5. Node
+5. Node.js
 6. axios
 7. angular
 8. go
