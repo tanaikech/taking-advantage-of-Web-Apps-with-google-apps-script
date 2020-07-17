@@ -1110,6 +1110,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 # References
 
 - [Web Apps](https://developers.google.com/apps-script/guides/web)
+- [`gas-web-app` tag on Stackoverflow](https://stackoverflow.com/tags/gas-web-app/info)
 
 ---
 
