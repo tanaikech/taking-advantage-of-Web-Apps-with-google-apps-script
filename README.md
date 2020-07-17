@@ -30,6 +30,7 @@
 - [Status code from Web Apps](#statuscodefromwebapps)
 - [Applications](#applications)
 - [Sample situations](#samplesituations)
+- [References](#references)
 
 <a name="overview"></a>
 
@@ -1106,6 +1107,8 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Retrieve text in namedRange with Google Docs API](https://stackoverflow.com/q/62797150/7108653)
 
 ---
+
+<a name="references"></a>
 
 # References
 
