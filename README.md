@@ -20,6 +20,7 @@
   - [Share project of Web Apps with client users](#shareproject)
 - [How to use dev mode from outside](#howtousedevmode)
 - [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at May 21, 2020</font></sup>
+- [Checking log with console.log at Apps Script Dashboard](#checklog) <sup><font color="Red">Added at July 25, 2020</font></sup>
 - [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
 - [Error messages](#errormessages)
 - [CORS in Web Apps](#corsinwebapps) <sup><font color="Red">Added at July 1, 2020</font></sup>
@@ -524,6 +525,14 @@ When you run above curl command, you can retrieve the following values. `fileNam
   "method": "POST"
 }
 ```
+
+<a name="checklog"></a>
+
+# Checking log with console.log at Apps Script Dashboard
+
+When it requests to `doGet` and `doPost` of the Web Apps from outside, there is the case that you want to see the log using `console.log` at Apps Script Dashboard. But when it requests to the Web Apps with `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous` using a script, in this case, you can access to the Web Apps without using the access token. But in this case, `console.log` in `doGet` and `doPost` cannot record the logs. So please be careful this.
+
+In order to record the logs with `console.log` in `doGet` and `doPost` when it requests to the Web Apps from the outside, please request by including the access token in the request header. By this, `console.log` in `doGet` and `doPost` can record the logs.
 
 <a name="limitationofsimultaneousconnection"></a>
 
