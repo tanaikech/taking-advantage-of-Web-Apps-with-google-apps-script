@@ -20,7 +20,7 @@
   - [Share project of Web Apps with client users](#shareproject)
 - [How to use dev mode from outside](#howtousedevmode)
 - [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at May 21, 2020</font></sup>
-- [Checking log with console.log at Apps Script Dashboard](#checklog) <sup><font color="Red">Added at July 25, 2020</font></sup>
+- [Logs in Web Apps for Google Apps Script](#checklog) <sup><font color="Red">Added at July 26, 2020</font></sup>
 - [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
 - [Error messages](#errormessages)
 - [CORS in Web Apps](#corsinwebapps) <sup><font color="Red">Added at July 1, 2020</font></sup>
@@ -528,11 +528,94 @@ When you run above curl command, you can retrieve the following values. `fileNam
 
 <a name="checklog"></a>
 
-# Checking log with console.log at Apps Script Dashboard
+# Logs in Web Apps for Google Apps Script
 
-When it requests to `doGet` and `doPost` of the Web Apps from outside, there is the case that you want to see the log using `console.log` at Apps Script Dashboard. But when it requests to the Web Apps with `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous` using a script, in this case, you can access to the Web Apps without using the access token. But in this case, `console.log` in `doGet` and `doPost` cannot record the logs. So please be careful this.
+[Gists](https://gist.github.com/tanaikech/3ccb4dd8ce43de21fdb764a68c14a4d7)
 
-In order to record the logs with `console.log` in `doGet` and `doPost` when it requests to the Web Apps from the outside, please request by including the access token in the request header. By this, `console.log` in `doGet` and `doPost` can record the logs.
+This is a report for retrieving the logs in Web Apps for Google Apps Script, when it requests to the Web Apps.
+
+## Experimental condition
+
+### 1. Sample script for Web Apps
+
+```javascript
+const doGet = (e) => {
+  Logger.log(`GET method: ${JSON.stringify(e)}`);
+  console.log(`GET method: ${JSON.stringify(e)}`);
+  return ContentService.createTextOutput(
+    JSON.stringify({ method: "GET", e: e })
+  );
+};
+const doPost = (e) => {
+  Logger.log(`POST method: ${JSON.stringify(e)}`);
+  console.log(`POST method: ${JSON.stringify(e)}`);
+  return ContentService.createTextOutput(
+    JSON.stringify({ method: "POST", e: e })
+  );
+};
+```
+
+- This Web Apps is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+
+### 2. Sample Google Apps Script project
+
+1. Google Apps Script of standalone type WITHOUT linking Google Cloud Platform (GCP) Project
+
+   - In this case, you can retrieve this standalone Google Apps Script by directly creating.
+
+2. Google Apps Script of standalone type WITH linking Google Cloud Platform (GCP) Project
+   - In this case, you can retrieve this standalone Google Apps Script by [this flow](https://gist.github.com/tanaikech/e945c10917fac34a9d5d58cad768832c).
+
+### 3. Experimental procedure
+
+To above Web Apps of `doGet` and `doPost`, it requests with the following 4 patterns.
+
+1. For `doGet`.
+
+   ```bash
+   $ curl -L "https://script.google.com/macros/s/###/exec"
+   ```
+
+2. For `doPost`.
+
+   ```bash
+   $ curl -L -d "key=value" "https://script.google.com/macros/s/###/exec"
+   ```
+
+3. For `doGet`. Access token is used.
+
+   ```bash
+   $ curl -L -H "Authorization: Bearer ###" "https://script.google.com/macros/s/###/exec"
+   ```
+
+4. For `doPost`. Access token is used.
+
+   ```bash
+   $ curl -L -H "Authorization: Bearer ###" -d "key=value" "https://script.google.com/macros/s/###/exec"
+   ```
+
+## Result and discussions
+
+The conditions which can confirm the logs are as follows.
+
+<br>
+<br>
+
+|                     | Without access token | With access token                     |
+| :------------------ | :------------------- | :------------------------------------ |
+| Without linking GCP |                      | Apps Script Dashboard                 |
+| With linking GCP    | Stackdriver          | Apps Script Dashboard and Stackdriver |
+
+<br>
+<br>
+
+From above results, it was found as follows.
+
+- If you use the default Google Apps Script project without linking GCP, in order to retrieve the logs which requested to the Web Apps, please access to the Web Apps using the access token, even when the Web Apps is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+
+- If you use the Google Apps Script project with linking GCP, you can retrieve all logs of users who accessed to the Web Apps at Stackdriver, even when the Web Apps is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+
+- In this case, the logs couldn't be seen with `Logger.log` for above all situations.
 
 <a name="limitationofsimultaneousconnection"></a>
 
