@@ -617,6 +617,11 @@ From above results, it was found as follows.
 
 - In this case, the logs couldn't be seen with `Logger.log` for above all situations.
 
+## IMPORTANT
+
+In the current stage, when the access token is used for XMLHttpRequest and fetch of Javascript in the request headers, the error related to CORS occurs. So, in [this report](https://gist.github.com/tanaikech/e27581278f8cb464dff1dd83d6f887a7), I would like to propose the workaround for resolving this issue.
+
+
 <a name="limitationofsimultaneousconnection"></a>
 
 # Limitation of simultaneous connection to Web Apps
