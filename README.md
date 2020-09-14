@@ -621,7 +621,6 @@ From above results, it was found as follows.
 
 In the current stage, when the access token is used for XMLHttpRequest and fetch of Javascript in the request headers, the error related to CORS occurs. So, in [this report](https://gist.github.com/tanaikech/e27581278f8cb464dff1dd83d6f887a7), I would like to propose the workaround for resolving this issue.
 
-
 <a name="limitationofsimultaneousconnection"></a>
 
 # Limitation of simultaneous connection to Web Apps
@@ -1202,6 +1201,13 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Trouble accessing Google Sheet as a TSV file](https://stackoverflow.com/q/62611127/7108653)
 - [Get data from Google Sheets without Sheets API](https://stackoverflow.com/q/62732791)
 - [Retrieve text in namedRange with Google Docs API](https://stackoverflow.com/q/62797150/7108653)
+- [Using private sheets with tabletop.js](https://stackoverflow.com/q/63135606/7108653)
+- [I'm trying to get the direct download link for a file using the Google Drive API](https://stackoverflow.com/q/63363012)
+- [Upload file to my google drive with Google Apps Script (NO FORM IN GOOGLE)](https://stackoverflow.com/q/63374794)
+- [Upload image from URL to Google Drive through Google Drive API Javascript](https://stackoverflow.com/q/63461593)
+- [Google Sheets API with php - Find a cell value](https://stackoverflow.com/q/63496284)
+- [calling sheet function in GAS](https://stackoverflow.com/q/63553532)
+- [Possible to send mail from Google by URL?](https://stackoverflow.com/q/63817399)
 
 ---
 
