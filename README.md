@@ -1208,6 +1208,10 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Google Sheets API with php - Find a cell value](https://stackoverflow.com/q/63496284)
 - [calling sheet function in GAS](https://stackoverflow.com/q/63553532)
 - [Possible to send mail from Google by URL?](https://stackoverflow.com/q/63817399)
+- [Formula Works in Google App Script Console, But Returns Authentication Error in Spreadsheets](https://stackoverflow.com/q/63879205/7108653)
+- [Scrape data from someone else's Google Sheets page using node.js?](https://stackoverflow.com/q/64001024/7108653)
+- [How to enable not authorized users to protect the spreadsheet](https://stackoverflow.com/q/64086095/7108653)
+- [Retrieving All Values from All Sheets from URL of 2PACX- of Web Published Google Spreadsheet using Google Apps Script and Javascript](https://tanaikech.github.io/2020/10/12/retrieving-all-values-from-all-sheets-from-url-of-2pacx-of-web-published-google-spreadsheet-using-google-apps-script-and-javascript/)
 
 ---
 
