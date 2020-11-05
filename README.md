@@ -1212,6 +1212,8 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Scrape data from someone else's Google Sheets page using node.js?](https://stackoverflow.com/q/64001024/7108653)
 - [How to enable not authorized users to protect the spreadsheet](https://stackoverflow.com/q/64086095/7108653)
 - [Retrieving All Values from All Sheets from URL of 2PACX- of Web Published Google Spreadsheet using Google Apps Script and Javascript](https://tanaikech.github.io/2020/10/12/retrieving-all-values-from-all-sheets-from-url-of-2pacx-of-web-published-google-spreadsheet-using-google-apps-script-and-javascript/)
+- [Changing Owner of the Sheet irrespective of the duplicator](https://stackoverflow.com/q/64666605/7108653)
+- [Google Sheets - Run script with Sheet Protection](https://stackoverflow.com/q/64673622/7108653)
 
 ---
 
