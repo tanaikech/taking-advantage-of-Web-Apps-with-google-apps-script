@@ -51,28 +51,43 @@ There is [Web Apps](https://developers.google.com/apps-script/guides/web) as one
 
 When Web Apps is deployed, you can see the following window.
 
+For new IDE, please open a dialog by "Deploy" -> "New deployment". And, please select "Web app" at "Select type. By this, you can see the following dialog.
+
+![](images/newide1.png)
+
+On the other hand, when you use old IDE, you can see the following dialog.
+
 ![](images/fig1.png)
 
 For setting, generally, the following flow is used.
 
 - On script editor
 - Publish -> Deploy as web app...
+
   - Project version:
     - "New" and input the description.
-  - Pattern 1: <u>Execute the app as:</u>
-    - **Me**
+  - Pattern 1: <u>Execute the app as:</u> (old IDE), <u>Execute as:</u> (new IDE)
+    - **Me** (old IDE and new IDE)
       - <u>Who has access to the app:</u>
-        - **Only myself**
-        - **Anyone**
-        - **Anyone, even anonymous**
-  - Pattern 2: <u>Execute the app as:</u>
-    - **User accessing the web app**
-      - <u>Who has access to the app:</u>
-        - **Only myself**
-        - **Anyone**
+        - **Only myself** (old IDE and new IDE)
+        - **Anyone** (old IDE), **Anyone with Google account** (new IDE)
+        - **Anyone, even anonymous** (old IDE), **Anyone** (new IDE)
+  - Pattern 2: <u>Execute the app as:</u> (old IDE), <u>Execute as:</u> (new IDE)
+    - **User accessing the web app** (old IDE and new IDE)
+      - <u>Who has access to the app:</u> (old IDE), <u>Who has access</u> (new IDE)
+        - **Only myself** (old IDE and new IDE)
+        - **Anyone** (old IDE), **Anyone with Google account** (new IDE)
   - Click Deploy.
 
-There are **Me** and **User accessing the web app** for "Execute the app as:" and **Only myself**, **Anyone** and **Anyone, even anonymous** for "Who has access to the app:" as the options. When **Me** and **User accessing the web app** are selected for "Execute the app as:", each "Who has access to the app:" has 3 and 2 options, respectively. From above flow, It is found that there are 5 situations for deploying Web Apps. For each situation, there are 2 methods of GET and POST.
+- There are **Me** and **User accessing the web app** for "Execute the app as:" and **Only myself**, **Anyone** and **Anyone, even anonymous** for "Who has access to the app:" as the options. When **Me** and **User accessing the web app** are selected for "Execute the app as:", each "Who has access to the app:" has 3 and 2 options, respectively. From above flow, It is found that there are 5 situations for deploying Web Apps. For each situation, there are 2 methods of GET and POST.
+
+- At new IDE,
+
+  - **Execute the app as:** became **Execute as**. And the values are **Me** and **User accessing the web app**. These are the same with the old IDE.
+  - **Who has access to the app:** became **Who has access**. About the values, please check the following list.
+
+    - When **Execute as** is **Me**, the values of **Who has access** are **Only myself**, **Anyone with Google account** and **Anyone**. In this case, the values of **Only myself**, **Anyone with Google account** and **Anyone** of new IDE are the same with **Only myself**, **Anyone** and **Anyone, even anonymous**, respectively.
+    - When **Execute as** is **User accessing the web app**, the values of **Who has access** are **Only myself** and **Anyone with Google account**. These are the same with **Only myself** and **Anyone** of the old IDE, respectively.
 
 In this report, I would like to introduce about the specification for Web Apps deployed by 5 situations.
 
@@ -1214,6 +1229,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Retrieving All Values from All Sheets from URL of 2PACX- of Web Published Google Spreadsheet using Google Apps Script and Javascript](https://tanaikech.github.io/2020/10/12/retrieving-all-values-from-all-sheets-from-url-of-2pacx-of-web-published-google-spreadsheet-using-google-apps-script-and-javascript/)
 - [Changing Owner of the Sheet irrespective of the duplicator](https://stackoverflow.com/q/64666605/7108653)
 - [Google Sheets - Run script with Sheet Protection](https://stackoverflow.com/q/64673622/7108653)
+- [User Runs Script for Range Protected by Owner using Google Apps Script](https://gist.github.com/tanaikech/5ebf492b53de40fe254dba63c8520391)
 
 ---
 
