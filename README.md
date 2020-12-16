@@ -51,7 +51,7 @@ There is [Web Apps](https://developers.google.com/apps-script/guides/web) as one
 
 When Web Apps is deployed, you can see the following window.
 
-For new IDE, please open a dialog by "Deploy" -> "New deployment". And, please select "Web app" at "Select type. By this, you can see the following dialog.
+New IDE for Google Apps Script has finally been released at December 7, 2020. [Ref](https://developers.google.com/apps-script/releases/#december_7_2020) For new IDE, please open a dialog by "Deploy" -> "New deployment". And, please select "Web app" at "Select type. By this, you can see the following dialog.
 
 ![](images/newide1.png)
 
