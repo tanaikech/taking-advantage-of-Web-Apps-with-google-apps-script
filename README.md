@@ -8,6 +8,7 @@
 - [Overview](#overview)
 - [Description](#description)
 - [Deploy Web Apps](#deploywebApps)
+- [Redeploying Web Apps without Changing URL of Web Apps for new IDE](#redeploy) <sup><font color="Red">Added at March 29, 2021</font></sup>
 - [5 situations for Web Apps](#situationsforwebapps)
   - [How to access to Web Apps](#howtoaccesstowebapps)
     - [1. Owner accesses to Web Apps using browser](#howtoaccesstowebapps1)
@@ -90,6 +91,14 @@ For setting, generally, the following flow is used.
     - When **Execute as** is **User accessing the web app**, the values of **Who has access** are **Only myself** and **Anyone with Google account**. These are the same with **Only myself** and **Anyone** of the old IDE, respectively.
 
 In this report, I would like to introduce about the specification for Web Apps deployed by 5 situations.
+
+<a name="redeploy"></a>
+
+# Redeploying Web Apps without Changing URL of Web Apps for new IDE
+
+At March 15, 2021, one endpoint is created for one deployment. [Ref](https://developers.google.com/apps-script/releases/#march_15_2021) By this, when you redeploy "Web Apps", the endpoint is changed. Because the deployment ID is changed. It seems that this it the new specification. In this report, I would like to introduce the method for redeploying Web Apps without changing the URL of Web Apps for new IDE.
+
+The detail document can be seen at [https://gist.github.com/tanaikech/ebf92d8f427d02d53989d6c3464a9c43](https://gist.github.com/tanaikech/ebf92d8f427d02d53989d6c3464a9c43).
 
 <a name="situationsforwebapps"></a>
 
