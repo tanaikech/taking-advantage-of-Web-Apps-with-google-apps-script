@@ -30,6 +30,7 @@
 - [Sample scripts of client side](#samplescriptofclientside)
 - [Sample scripts of client side by various languages](#samplescriptvariouslanguages) <sup><font color="Red">Added at July 15, 2020</font></sup>
 - [Status code from Web Apps](#statuscodefromwebapps)
+- [Concurrent access to Web Apps](#concurrentaccesstowebapps) <sup><font color="Red">Added at October 23, 2021</font></sup>
 - [Applications](#applications)
 - [Sample situations](#samplesituations)
 - [References](#references)
@@ -1096,6 +1097,18 @@ Logger.log(res.getContentText());
 ```
 
 ---
+
+<a name="concurrentaccesstowebapps"></a>
+
+## Concurrent access to Web Apps
+
+- [Is there any limit on number of concurrent hits or simultaneous executions on Google App Script Web App](https://stackoverflow.com/q/17512194/7108653)
+	- I answered to this thread in Stackoverflow. [Ref](https://stackoverflow.com/a/50033976/7108653)
+
+- [Benchmark: Concurrent Writing to Google Spreadsheet using Form](https://gist.github.com/tanaikech/c2f3fccabbf4906a18fdc38463982f31)
+	- When the users try to write to a Spreadsheet using a form, the developers have to consider the concurrent submission from the form. For example, when multiple users submit the data with the form simultaneously, all data are possibly not to be saved to the Spreadsheet. So it is considered that it is important to know the information about the concurrent writing to Google Spreadsheet using a form. In this report, such a situation was investigated.
+
+	- As the result, when the success rate for writing concurrently to Google Spreadsheet is investigated, it was found that the concurrent writing with Web Apps created by Google Apps Script was suitable rather than Google Form. The threshold number of users for succeeding to write all data to Spreadsheet was 60 for Web Apps and 35 for Google Form, respectively. And, when Web Apps is used, it was also found that Lock Service and the long wait time was definitely required to be used for the multiple submission.
 
 <a name="applications"></a>
 
