@@ -1103,12 +1103,14 @@ Logger.log(res.getContentText());
 ## Concurrent access to Web Apps
 
 - [Is there any limit on number of concurrent hits or simultaneous executions on Google App Script Web App](https://stackoverflow.com/q/17512194/7108653)
-	- I answered to this thread in Stackoverflow. [Ref](https://stackoverflow.com/a/50033976/7108653)
+
+  - I answered to this thread in Stackoverflow. [Ref](https://stackoverflow.com/a/50033976/7108653)
 
 - [Benchmark: Concurrent Writing to Google Spreadsheet using Form](https://gist.github.com/tanaikech/c2f3fccabbf4906a18fdc38463982f31)
-	- When the users try to write to a Spreadsheet using a form, the developers have to consider the concurrent submission from the form. For example, when multiple users submit the data with the form simultaneously, all data are possibly not to be saved to the Spreadsheet. So it is considered that it is important to know the information about the concurrent writing to Google Spreadsheet using a form. In this report, such a situation was investigated.
 
-	- As the result, when the success rate for writing concurrently to Google Spreadsheet is investigated, it was found that the concurrent writing with Web Apps created by Google Apps Script was suitable rather than Google Form. The threshold number of users for succeeding to write all data to Spreadsheet was 60 for Web Apps and 35 for Google Form, respectively. And, when Web Apps is used, it was also found that Lock Service and the long wait time was definitely required to be used for the multiple submission.
+  - When the users try to write to a Spreadsheet using a form, the developers have to consider the concurrent submission from the form. For example, when multiple users submit the data with the form simultaneously, all data are possibly not to be saved to the Spreadsheet. So it is considered that it is important to know the information about the concurrent writing to Google Spreadsheet using a form. In this report, such a situation was investigated.
+
+  - As the result, when the success rate for writing concurrently to Google Spreadsheet is investigated, it was found that the concurrent writing with Web Apps created by Google Apps Script was suitable rather than Google Form. The threshold number of users for succeeding to write all data to Spreadsheet was 60 for Web Apps and 35 for Google Form, respectively. And, when Web Apps is used, it was also found that Lock Service and the long wait time was definitely required to be used for the multiple submission.
 
 <a name="applications"></a>
 
@@ -1252,6 +1254,21 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Changing Owner of the Sheet irrespective of the duplicator](https://stackoverflow.com/q/64666605/7108653)
 - [Google Sheets - Run script with Sheet Protection](https://stackoverflow.com/q/64673622/7108653)
 - [User Runs Script for Range Protected by Owner using Google Apps Script](https://gist.github.com/tanaikech/5ebf492b53de40fe254dba63c8520391)
+- [How to authenticate programmatically when running an Apps Script Web App from another Apps Script project](https://stackoverflow.com/q/64858395/7108653)
+- [Using triggers with custom functions on Google Apps Script](https://stackoverflow.com/q/64897709/7108653)
+- [how upload image & text input to same Row to google sheets](https://stackoverflow.com/q/65013982/7108653)
+- [TextRotation angle is never set in Google Sheet API](https://stackoverflow.com/q/65229316/7108653)
+- [Create one folder for all files uploaded with google apps script and web app form](https://stackoverflow.com/q/65292899/7108653)
+- [Google sheets: is it possible to protect a range of cell such that it can only be modify with a script?](https://stackoverflow.com/q/66020192/7108653)
+- [Uploading photo using Google Apps Script](https://stackoverflow.com/q/66053890/7108653)
+- [How do I get/create a hyperlink in only part of a cell?](https://stackoverflow.com/q/66104825/7108653)
+- [How do I get sorted results from the Google Photos search API?](https://stackoverflow.com/q/66354884/7108653)
+- [Google Script HTML form from Library throws error Uncaught](https://stackoverflow.com/q/66711782/7108653)
+- [Import XML content from a cell – Google spreadsheets](https://stackoverflow.com/q/67053567/7108653)
+- [How to update Chart Title via Google Sheet API (python)](https://stackoverflow.com/q/67377609/7108653)
+- [How to serve (PDF,binary) file from GAS web to a browser?](https://stackoverflow.com/q/67545478/7108653)
+- [How do I create an export to Google Sheet button on a web page?](https://stackoverflow.com/q/69465833/7108653)
+- [How to get raw numbers from Google Sheets API](https://stackoverflow.com/q/69537680/7108653)
 
 ---
 
