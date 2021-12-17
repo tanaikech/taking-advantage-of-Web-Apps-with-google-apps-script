@@ -1,6 +1,6 @@
 # Taking advantage of Web Apps with Google Apps Script
 
-<a name="TOP"></a>
+<a name="top"></a>
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENCE)
 
 # Table of contents
@@ -1269,6 +1269,11 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [How to serve (PDF,binary) file from GAS web to a browser?](https://stackoverflow.com/q/67545478/7108653)
 - [How do I create an export to Google Sheet button on a web page?](https://stackoverflow.com/q/69465833/7108653)
 - [How to get raw numbers from Google Sheets API](https://stackoverflow.com/q/69537680/7108653)
+- [How to access data on different Google Spreadsheet through Google Apps Script for user without Editor access?](https://stackoverflow.com/q/69879044/7108653)
+- [I need to make the end user able to run some functions without google apps script without giving him access to the code](https://stackoverflow.com/q/69967621/7108653)
+- [Restrict Editors to Specific Ranges Script](https://stackoverflow.com/q/70342492/7108653)
+- [How to POST JSON to a Google Apps Script with DEV Link](https://stackoverflow.com/q/70243094/7108653)
+- [Creating an onEdit trigger on a sheet owned by a service account](https://stackoverflow.com/q/70367955/7108653)
 
 ---
 
@@ -1277,7 +1282,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 # References
 
 - [Web Apps](https://developers.google.com/apps-script/guides/web)
-- [`gas-web-app` tag on Stackoverflow](https://stackoverflow.com/tags/gas-web-app/info)
+- [`google-apps-script` tag on Stackoverflow](https://stackoverflow.com/tags/gas-web-app/info)
 
 ---
 
@@ -1285,7 +1290,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 
 # Licence
 
-[MIT](LICENCE)
+[MIT](licence)
 
 <a name="author"></a>
 
@@ -1295,12 +1300,10 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 
 If you have any questions, feel free to tell me using e-mail tanaike@hotmail.com Also if you found new information related to this report and tell me them, I am glad. I would like to update this report.
 
-<a name="update_history"></a>
+<a name="updatehistory"></a>
 
 # Update History
 
-- v1.0.0 (April 26, 2018)
+This repository has been created on April 26, 2018. After this repository was created, the information has continued to be updated.
 
-  Initial release.
-
-[TOP](#TOP)
+[TOP](#top)
