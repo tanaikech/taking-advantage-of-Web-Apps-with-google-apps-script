@@ -1302,6 +1302,6 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 
 # Update History
 
-This repository has been created on April 26, 2018. After this repository was created, the information has continued to be updated.
+This repository has been created on April 26, 2018. After this repository was created, the information has continued to be grown now.
 
 [TOP](#top)
