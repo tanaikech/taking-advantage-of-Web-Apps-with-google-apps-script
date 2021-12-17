@@ -45,7 +45,7 @@ This is a report to take advantage of Web Apps with Google Apps Script (GAS).
 
 # Description
 
-There is [Web Apps](https://developers.google.com/apps-script/guides/web) as one of applications using Google Apps Script (GAS). I sometimes use this Web Apps. But I have only a little the information for the specification of Web Apps. So in order to take more advantage of Web Apps, I investigated and summarized about this. The aim of this report is to become one of the basic information for creating various applications using Web Apps with GAS.
+There is "[Web Apps](https://developers.google.com/apps-script/guides/web)" as one of the applications using Google Apps Script (GAS). I sometimes use this Web app. But I have only a little information for the specification of Web Apps. So in order to take more advantage of Web Apps, I investigated and summarized this. The aim of this report is to become one of the basic information for creating various applications using Web Apps with GAS.
 
 <a name="deploywebapps"></a>
 
@@ -1297,8 +1297,6 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 # Author
 
 [Tanaike](https://tanaikech.github.io/about/)
-
-If you have any questions, feel free to tell me using e-mail tanaike@hotmail.com Also if you found new information related to this report and tell me them, I am glad. I would like to update this report.
 
 <a name="updatehistory"></a>
 
