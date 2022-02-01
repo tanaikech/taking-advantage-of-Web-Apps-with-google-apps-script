@@ -1274,6 +1274,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Restrict Editors to Specific Ranges Script](https://stackoverflow.com/q/70342492/7108653)
 - [How to POST JSON to a Google Apps Script with DEV Link](https://stackoverflow.com/q/70243094/7108653)
 - [Creating an onEdit trigger on a sheet owned by a service account](https://stackoverflow.com/q/70367955/7108653)
+- [Is there a way where I can minimize execution time of a google apps script through triggers?](https://stackoverflow.com/q/70415876/7108653)
 
 ---
 
