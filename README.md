@@ -1275,6 +1275,14 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [How to POST JSON to a Google Apps Script with DEV Link](https://stackoverflow.com/q/70243094/7108653)
 - [Creating an onEdit trigger on a sheet owned by a service account](https://stackoverflow.com/q/70367955/7108653)
 - [Is there a way where I can minimize execution time of a google apps script through triggers?](https://stackoverflow.com/q/70415876/7108653)
+- [If LockService works for a common script for multiple users, is there an option when dealing with multiple scripts sending data to the same column?](https://stackoverflow.com/q/71446597)
+- [Convert Google doc to Word document with reduced oAuth scopes](https://stackoverflow.com/q/71556960)
+- [How to use Web App approach when having functions run by editors on protected ranges, using Google Apps Scritps?](https://stackoverflow.com/q/71594546)
+- [google apps script web app call differents functions](https://stackoverflow.com/q/71729091)
+- [Multiple bulk import entries using Google Apps Script](https://stackoverflow.com/q/71821794)
+- [How to add a status bar for file upload? (Google Drive/ Apps Script)](https://stackoverflow.com/q/71995596)
+- [Inserting row into google sheet via external WebApp](https://stackoverflow.com/q/72088769)
+- [Need to make simple read and update webapp using appscript](https://stackoverflow.com/q/72139734)
 
 ---
 
