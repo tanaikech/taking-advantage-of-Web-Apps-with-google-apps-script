@@ -8,7 +8,7 @@
 - [Overview](#overview)
 - [Description](#description)
 - [Deploy Web Apps](#deploywebApps)
-- [Redeploying Web Apps without Changing URL of Web Apps for new IDE](#redeploy) <sup><font color="Red">Added at March 29, 2021</font></sup>
+- [Redeploying Web Apps without Changing URL of Web Apps for new IDE](#redeploy)
 - [5 situations for Web Apps](#situationsforwebapps)
   - [How to access to Web Apps](#howtoaccesstowebapps)
     - [1. Owner accesses to Web Apps using browser](#howtoaccesstowebapps1)
@@ -20,19 +20,19 @@
   - [Access token for accessing to Web Apps](#accesstokenforaccessingtowebapps)
   - [Share project of Web Apps with client users](#shareproject)
 - [How to use dev mode from outside](#howtousedevmode)
-- [Event object of Web Apps](#eventobject) <sup><font color="Red">Added at May 21, 2020</font></sup>
-- [Logs in Web Apps for Google Apps Script](#checklog) <sup><font color="Red">Added at July 26, 2020</font></sup>
+- [Event object of Web Apps](#eventobject)
+- [Logs in Web Apps for Google Apps Script](#checklog)
 - [Limitation of simultaneous connection to Web Apps](#limitationofsimultaneousconnection)
 - [Error messages](#errormessages)
-- [CORS in Web Apps](#corsinwebapps) <sup><font color="Red">Added at July 1, 2020</font></sup>
+- [CORS in Web Apps](#corsinwebapps)
 - [Confidentiality of scripts for Web Apps](#confidentialityofscripts)
 - [Sample script of server side](#samplescriptofserverside)
 - [Sample scripts of client side](#samplescriptofclientside)
-- [Sample scripts of client side by various languages](#samplescriptvariouslanguages) <sup><font color="Red">Added at July 15, 2020</font></sup>
+- [Sample scripts of client side by various languages](#samplescriptvariouslanguages)
 - [Status code from Web Apps](#statuscodefromwebapps)
-- [Concurrent access to Web Apps](#concurrentaccesstowebapps) <sup><font color="Red">Added at October 23, 2021</font></sup>
+- [Concurrent access to Web Apps](#concurrentaccesstowebapps)
 - [Applications](#applications)
-- [Sample situations](#samplesituations)
+- [Sample situations](#samplesituations) <sup><font color="Red">Added at August 24, 2022</font></sup>
 - [References](#references)
 
 <a name="overview"></a>
@@ -1283,6 +1283,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [How to add a status bar for file upload? (Google Drive/ Apps Script)](https://stackoverflow.com/q/71995596)
 - [Inserting row into google sheet via external WebApp](https://stackoverflow.com/q/72088769)
 - [Need to make simple read and update webapp using appscript](https://stackoverflow.com/q/72139734)
+- [Can Google App Scripts create Web Apps with Multiple User Accounts?](https://stackoverflow.com/q/73179391)
 
 ---
 
