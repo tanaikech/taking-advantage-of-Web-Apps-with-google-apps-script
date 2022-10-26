@@ -1119,7 +1119,7 @@ Logger.log(res.getContentText());
 
 ![](https://tanaikech.github.io/image-storage/20221026a/fig1.png)
 
-In Google Apps Script, there is the Web Apps. When Web Apps is used, the users can execute Google Apps Script using HTML and Javascript. This can be applied to various applications. When the Web Apps is deployed with "Anyone", anyone can access the Web Apps. And, there is the case that Web Apps deployed with "Anyone" is required to be used. Under this condition, when 2 Factor Authentication (2FA) can be implemented, it is considered that the security can be higher and it leads to giving various directions for the applications using Web Apps. In this report, the method for implementing the pseud 2FA for Web Apps deployed with "Anyone" using Google Apps Script.
+In Google Apps Script, there is the Web Apps. When Web Apps is used, the users can execute Google Apps Script using HTML and Javascript. This can be applied to various applications. When the Web Apps is deployed with "Anyone", anyone can access the Web Apps. And, there is the case that Web Apps deployed with "Anyone" is required to be used. Under this condition, when 2 Factor Authentication (2FA) can be implemented, it is considered that the security can be higher and it leads to giving various directions for the applications using Web Apps. In this report, I would like to introduce the method for implementing the pseud 2FA for Web Apps deployed with “Anyone” using Google Apps Script.
 
 **You can see the detail of this report at [https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2](https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2).**
 
