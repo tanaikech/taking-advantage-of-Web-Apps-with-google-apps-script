@@ -31,6 +31,7 @@
 - [Sample scripts of client side by various languages](#samplescriptvariouslanguages)
 - [Status code from Web Apps](#statuscodefromwebapps)
 - [Concurrent access to Web Apps](#concurrentaccesstowebapps)
+- [Implementing Pseudo 2FA for Web Apps](#2fatowebapps) <sup><font color="Red">Added at October 26, 2022</font></sup>
 - [Applications](#applications)
 - [Sample situations](#samplesituations) <sup><font color="Red">Added at August 24, 2022</font></sup>
 - [References](#references)
@@ -1111,6 +1112,16 @@ Logger.log(res.getContentText());
   - When the users try to write to a Spreadsheet using a form, the developers have to consider the concurrent submission from the form. For example, when multiple users submit the data with the form simultaneously, all data are possibly not to be saved to the Spreadsheet. So it is considered that it is important to know the information about the concurrent writing to Google Spreadsheet using a form. In this report, such a situation was investigated.
 
   - As the result, when the success rate for writing concurrently to Google Spreadsheet is investigated, it was found that the concurrent writing with Web Apps created by Google Apps Script was suitable rather than Google Form. The threshold number of users for succeeding to write all data to Spreadsheet was 60 for Web Apps and 35 for Google Form, respectively. And, when Web Apps is used, it was also found that Lock Service and the long wait time was definitely required to be used for the multiple submission.
+
+<a name="2fatowebapps"></a>
+
+## Implementing Pseudo 2FA for Web Apps
+
+![](https://tanaikech.github.io/image-storage/20221026a/fig1.png)
+
+In Google Apps Script, there is the Web Apps. When Web Apps is used, the users can execute Google Apps Script using HTML and Javascript. This can be applied to various applications. When the Web Apps is deployed with "Anyone", anyone can access the Web Apps. And, there is the case that Web Apps deployed with "Anyone" is required to be used. Under this condition, when 2 Factor Authentication (2FA) can be implemented, it is considered that the security can be higher and it leads to giving various directions for the applications using Web Apps. In this report, the method for implementing the pseud 2FA for Web Apps deployed with "Anyone" using Google Apps Script.
+
+**You can see the detail of this report at [https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2](https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2).**
 
 <a name="applications"></a>
 
