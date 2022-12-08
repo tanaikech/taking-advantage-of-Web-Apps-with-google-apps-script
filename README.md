@@ -32,6 +32,8 @@
 - [Status code from Web Apps](#statuscodefromwebapps)
 - [Concurrent access to Web Apps](#concurrentaccesstowebapps)
 - [Implementing Pseudo 2FA for Web Apps](#2fatowebapps) <sup><font color="Red">Added at October 26, 2022</font></sup>
+- [Workarounds](#workarounds)
+  - [1. Reflecting Latest Script to Deployed Web Apps without Redeploying](#workaround1) <sup><font color="Red">Added at December 7, 2022</font></sup>
 - [Applications](#applications)
 - [Sample situations](#samplesituations) <sup><font color="Red">Added at August 24, 2022</font></sup>
 - [References](#references)
@@ -1123,6 +1125,17 @@ In Google Apps Script, there is the Web Apps. When Web Apps is used, the users c
 
 **You can see the detail of this report at [https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2](https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2).**
 
+<a name="workarounds"></a>
+
+## Workarounds
+
+<a name="workaround1"></a>
+### 1. Reflecting Latest Script to Deployed Web Apps without Redeploying
+
+This report is a workaround for reflecting the latest Google Apps Script to the deployed Web Apps without redeploying. [https://gist.github.com/tanaikech/e46def22cf106b012dfa5ad359b93d24](https://gist.github.com/tanaikech/e46def22cf106b012dfa5ad359b93d24)
+
+## Implementing Pseudo 2FA for Web Apps
+
 <a name="applications"></a>
 
 ## Applications
@@ -1295,6 +1308,9 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [Inserting row into google sheet via external WebApp](https://stackoverflow.com/q/72088769)
 - [Need to make simple read and update webapp using appscript](https://stackoverflow.com/q/72139734)
 - [Can Google App Scripts create Web Apps with Multiple User Accounts?](https://stackoverflow.com/q/73179391)
+- [How to add a list of hyperlinks in a CSV field to a cell in Google Sheets?](https://stackoverflow.com/q/73347973)
+- [Dynamic hyperlink & Text in the same cell with a formula in google sheets](https://stackoverflow.com/q/73367517)
+- [Getting JavaScript file from Google Sheets](https://stackoverflow.com/q/74274721)
 
 ---
 
