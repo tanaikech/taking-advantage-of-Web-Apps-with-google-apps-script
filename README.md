@@ -32,6 +32,7 @@
 - [Status code from Web Apps](#statuscodefromwebapps)
 - [Concurrent access to Web Apps](#concurrentaccesstowebapps)
 - [Implementing Pseudo 2FA for Web Apps](#2fatowebapps) <sup><font color="Red">Added at October 26, 2022</font></sup>
+- [Request Web Apps using Fetch API of Javascript with access token](#fetchapiwithaccesstoken) <sup><font color="Red">Added at December 20, 2022</font></sup>
 - [Workarounds](#workarounds)
   - [1. Reflecting Latest Script to Deployed Web Apps without Redeploying](#workaround1) <sup><font color="Red">Added at December 7, 2022</font></sup>
 - [Applications](#applications)
@@ -1124,6 +1125,38 @@ Logger.log(res.getContentText());
 In Google Apps Script, there is the Web Apps. When Web Apps is used, the users can execute Google Apps Script using HTML and Javascript. This can be applied to various applications. When the Web Apps is deployed with "Anyone", anyone can access the Web Apps. And, there is the case that Web Apps deployed with "Anyone" is required to be used. Under this condition, when 2 Factor Authentication (2FA) can be implemented, it is considered that the security can be higher and it leads to giving various directions for the applications using Web Apps. In this report, I would like to introduce the method for implementing the pseud 2FA for Web Apps deployed with “Anyone” using Google Apps Script.
 
 **You can see the detail of this report at [https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2](https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce24ae9daf2).**
+
+<a name="fetchapiwithaccesstoken"></a>
+
+## Request Web Apps using Fetch API of Javascript with the access token
+
+In the current stage, when you want to request Web Apps with the access token, when the access token is including the request header, an error related to CORS occurs. Please be careful about this.
+
+So, in this case, please include the access token in the query parameter. By this, the request can be worked. The sample script is as follows.
+
+```javascript
+const accessToken = "###"; // Please set your access token.
+const url = "https://script.google.com/macros/s/###/exec?access_token=" + accessToken;
+fetch(url)
+  .then((res) => res.text())
+  .then((res) => console.log(res));
+```
+
+By this modification, you can access Web Apps with the access token.
+
+By the way, for example, when the curl command is used, the access token can be included in the request header as follows.
+
+```bash
+$ curl -L \
+-H "Authorization: Bearer ###" \
+"https://script.google.com/macros/s/###/exec"
+```
+
+And also, the following curl command can be used.
+
+```bash
+$ curl -L "https://script.google.com/macros/s/###/exec?access_token=###"
+```
 
 <a name="workarounds"></a>
 
