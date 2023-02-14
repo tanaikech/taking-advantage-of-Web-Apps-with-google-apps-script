@@ -555,6 +555,32 @@ When you run above curl command, you can retrieve the following values. `fileNam
 }
 ```
 
+#### `pathInfo`: Updated on February 14, 2023
+
+In the current stage, it seems that `pathInfo` can be used with the access token. It supposes that the following sample script is used.
+
+```javascript
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify(e));
+}
+```
+
+When you log in to your Google account and you access `https://script.google.com/macros/s/###/exec/sample.txt` with your browser, `{"contextPath":"","parameter":{},"pathInfo":"sample.txt","contentLength":-1,"parameters":{},"queryString":""}` can be seen.
+
+In this case, when you access it without logging in Google account, even when Web Apps is deployed as `Execute as: Me` and `Who has access to the app: Anyone`, the log in screen is opened. Please be careful about this.
+
+And, if you want to access with `https://script.google.com/macros/s/###/exec/sample.txt` using a script, please request it by including the access token. The sample curl command is as follows. In this case, the access token can be used as the query parameter. Please include one of the scopes of Drive API in the access token.
+
+```bash
+curl -L "https://script.google.com/macros/s/###/exec/sample.txt?access_token=###"
+```
+
+By this, the following result is returned.
+
+```json
+{"contextPath":"","queryString":"access_token=###"},"pathInfo":"sample.txt","parameters":{"access_token":["###"]},"contentLength":-1}
+```
+
 <a name="checklog"></a>
 
 # Logs in Web Apps for Google Apps Script
