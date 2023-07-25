@@ -19,6 +19,7 @@
   - [Authorization for scopes](#authorizationforscopes)
   - [Access token for accessing to Web Apps](#accesstokenforaccessingtowebapps)
   - [Share project of Web Apps with client users](#shareproject)
+- [Understanding Flow of Request to Web Apps Created by Google Apps Script](#understandrequestwebapps) <sup><font color="Red">Added at July 25, 2023</font></sup>
 - [How to use dev mode from outside](#howtousedevmode)
 - [Event object of Web Apps](#eventobject)
 - [Logs in Web Apps for Google Apps Script](#checklog)
@@ -281,6 +282,16 @@ var params = {
 var res = UrlFetchApp.fetch(url, params);
 Logger.log(res);
 ```
+
+<a name="understandrequestwebapps"></a>
+
+# Understanding Flow of Request to Web Apps Created by Google Apps Script
+
+Here, I would like to introduce a report for understanding the flow of the request to Web Apps created by Google Apps Script. There might be a case that various applications using the Web Apps are created and the Web Apps are used as the webhook. In that case, it is considered that when you have understood the flow of requests to the Web Apps, your goal might be able to be smoothly achieved. In this report, I would like to introduce the information about it.
+
+You can see the detail of this at the following my gist.
+
+[https://gist.github.com/tanaikech/131ba814a1f6012fd6a5ffe11789971f](https://gist.github.com/tanaikech/131ba814a1f6012fd6a5ffe11789971f)
 
 <a name="howtousedevmode"></a>
 
