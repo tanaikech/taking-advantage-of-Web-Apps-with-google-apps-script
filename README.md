@@ -32,12 +32,13 @@
 - [Sample scripts of client side by various languages](#samplescriptvariouslanguages)
 - [Status code from Web Apps](#statuscodefromwebapps)
 - [Concurrent access to Web Apps](#concurrentaccesstowebapps)
-- [Implementing Pseudo 2FA for Web Apps](#2fatowebapps) <sup><font color="Red">Added at October 26, 2022</font></sup>
-- [Request Web Apps using Fetch API of Javascript with access token](#fetchapiwithaccesstoken) <sup><font color="Red">Added at December 20, 2022</font></sup>
+- [Implementing Pseudo 2FA for Web Apps](#2fatowebapps)
+- [Request Web Apps using Fetch API of Javascript with access token](#fetchapiwithaccesstoken)
+- [Executing Google Apps Script with Service Account](#executingwithserviceaccount) <sup><font color="Red">Added at October 19, 2023</font></sup>
 - [Workarounds](#workarounds)
-  - [1. Reflecting Latest Script to Deployed Web Apps without Redeploying](#workaround1) <sup><font color="Red">Added at December 7, 2022</font></sup>
+  - [1. Reflecting Latest Script to Deployed Web Apps without Redeploying](#workaround1)
 - [Applications](#applications)
-- [Sample situations](#samplesituations) <sup><font color="Red">Added at August 24, 2022</font></sup>
+- [Sample situations](#samplesituations)
 - [References](#references)
 
 <a name="overview"></a>
@@ -1194,6 +1195,15 @@ And also, the following curl command can be used.
 ```bash
 $ curl -L "https://script.google.com/macros/s/###/exec?access_token=###"
 ```
+
+<a name="executingwithserviceaccount"></a>
+
+## Executing Google Apps Script with Service Account
+
+You can see the detailed report at the following gist and Medium.
+
+- [https://gist.github.com/tanaikech/304fea821ca36b8e9ccebe9814eaed82](https://gist.github.com/tanaikech/304fea821ca36b8e9ccebe9814eaed82)
+- [https://medium.com/@tanaike/executing-google-apps-script-with-service-account-3752f4e3df8c](https://medium.com/@tanaike/executing-google-apps-script-with-service-account-3752f4e3df8c)
 
 <a name="workarounds"></a>
 
