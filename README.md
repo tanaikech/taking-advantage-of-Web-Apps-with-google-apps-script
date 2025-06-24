@@ -690,11 +690,6 @@ From the experiment result, it was found the following important result.
 
 3. For example, when in your situation of the POST method, when the values can be correctly sent to the Web Apps and the returned values are not correctly returned from the Web Apps, the request for the redirect might be the POST method. In that case, please change the request for the redirect URL from the POST method to the GET method. If your script cannot be directly changed, please try to do the above process with a script or a manual operation.
 
-### References
-
-- [Web Apps](https://developers.google.com/apps-script/guides/web)
-- [Taking advantage of Web Apps with Google Apps Script](https://github.com/tanaikech/taking-advantage-of-Web-Apps-with-google-apps-script)
-
 ### Appendix
 
 As an appendix, I would like to introduce the sample scripts of Google Apps Script for the above flow.
@@ -1360,7 +1355,7 @@ To prevent CORS errors when working with Google Apps Script Web Apps, the follow
 
 #### Reference
 
-  - [Class ContentService](https://developers.google.com/apps-script/reference/content/content-service)
+- [Class ContentService](https://developers.google.com/apps-script/reference/content/content-service)
 
 ---
 
@@ -1656,9 +1651,8 @@ When the malicious user accesses Web Apps without authorizing the code, even whe
 
 - In this sample script, when the name, the password, and the authorization code are sent to the Google Apps Script side, those values are not encrypted as a sample. I selected this for the readability of the flow of this method. But, when you use this script in your actual situation, I would like to recommend encrypting the values.
 
-## References
+## Reference
 
-- [Taking advantage of Web Apps with Google Apps Script](https://github.com/tanaikech/taking-advantage-of-Web-Apps-with-google-apps-script)
 - [Creating User's Dashboard by Inputting Name and Password using Web Apps with Google Apps Script](https://tanaikech.github.io/2022/08/01/creating-users-dashboard-by-inputting-name-and-password-using-web-apps-with-google-apps-script/)
 
 ---
