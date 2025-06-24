@@ -64,7 +64,7 @@ This repository provides a comprehensive guide to understanding and leveraging W
 
 Google Apps Script (GAS) provides a powerful feature called Web Apps, which transforms your server-side script functions (doGet, doPost) into accessible web services. Leveraging the streamlined deployment process available in the new Apps Script IDE, developers can effortlessly create custom web pages, robust backend APIs, or versatile webhooks.
 
-The primary effect of Web Apps is to seamlessly bridge the gap between your Google Workspace environment and external users or applications, enabling dynamic and interactive solutions. Key advantages include unparalleled versatility—from hosting responsive user interfaces to serving as powerful backend services for mobile applications or third-party platforms. Web Apps offer flexible access control, allowing precise definition of who can execute your scripts and under what permissions, enhancing both security and accessibility. This eliminates the need for complex server setup and ongoing maintenance, making it a highly cost-effective and rapid development solution for leveraging Google's cloud infrastructure. This repository aims to provide comprehensive insights and practical guidance for maximizing the potential of Web Apps across diverse scenarios.
+The primary effect of Web Apps is to seamlessly bridge the gap between your Google Workspace environment and external users or applications, enabling dynamic and interactive solutions. Key advantages include unparalleled versatility窶杷rom hosting responsive user interfaces to serving as powerful backend services for mobile applications or third-party platforms. Web Apps offer flexible access control, allowing precise definition of who can execute your scripts and under what permissions, enhancing both security and accessibility. This eliminates the need for complex server setup and ongoing maintenance, making it a highly cost-effective and rapid development solution for leveraging Google's cloud infrastructure. This repository aims to provide comprehensive insights and practical guidance for maximizing the potential of Web Apps across diverse scenarios.
 
 # Web App Deployment & Configuration
 
@@ -84,9 +84,9 @@ Follow these steps to deploy the web app in the script editor:
 2.  Click "Select type" \> "Web App." The dialog shown above will appear.
 3.  Enter the web app's information in the fields under "Deployment configuration."
 4.  Select **"Execute as"**.
-      * Details for each value are in the following section.
+      * Details for each value are in the following section. [Ref](situationsforwebapps)
 5.  Select **"Who has access to the app:"**.
-      * Details for each value are in the following section.
+      * Details for each value are in the following section. [Ref](situationsforwebapps)
 6.  Click "Deploy."
 7.  In the script editor, click "Deploy" \> "Test deployments" in the top right.
 8.  Copy the web app URL, which will be similar to `https://script.google.com/macros/s/###/exec`. This URL can be accessed from outside of Google.
@@ -303,15 +303,15 @@ For example, in **Situation 5**, the Web App's script runs as each user (both th
 
 ## Authorization for Scopes
 
-* When a Web App is deployed with **"`Execute the app as:` Me`"** by the owner, the authorization screen is automatically displayed. Once the owner authorizes it, both the owner and client users can run the Web App's scripts as the owner.
+* When a Web App is deployed with **`Execute the app as: Me`** by the owner, the authorization screen is automatically displayed. Once the owner authorizes it, both the owner and client users can run the Web App's scripts as the owner.
     * **Example**: If `Session.getEffectiveUser().getEmail()` is run by a client user in this situation, the retrieved email will be the owner's email, indicating that the script is running as the owner.
     * **Example**: If `DriveApp.createFile(blob)` is executed within the Web App's script, the file will be created in the owner's Google Drive.
 
-* When a Web App is deployed with **"`Execute the app as:` User accessing the web app`"** by the owner, the authorization screen is **not** automatically displayed. Therefore, before the owner and client users can access the Web App, they must manually authorize the necessary scopes using their own browsers.
+* When a Web App is deployed with **`Execute the app as: User accessing the web app`** by the owner, the authorization screen is **not** automatically displayed. Therefore, before the owner and client users can access the Web App, they must manually authorize the necessary scopes using their own browsers.
     * If the Web App's scripts use specific scopes, the owner and client users only need to authorize them once via their own browser before accessing the Web App.
         * The authorization URL is `https://script.google.com/macros/s/#####/exec`, which is the same as the Web App's URL. When the owner and client users access this URL using their own browser, the following authorization screen appears:
             * ![](images/Authorizationforscopes_fig1.png)
-        * On this screen, click "**REVIEW PERMISSIONS**," then select your account and authorize the scopes. After the owner and client users have authorized the scopes, they can run the Web App's script.
+        * On this screen, click "**REVIEW PERMISSIONS**", then select your account and authorize the scopes. After the owner and client users have authorized the scopes, they can run the Web App's script.
     * **Example**: If `Session.getEffectiveUser().getEmail()` is run by a client user in this situation, the retrieved email will be each individual user's email, indicating that the script is running as each user.
     * **Example**: If `DriveApp.createFile(blob)` is executed within the Web App's script, the file will be created in each individual user's Google Drive.
 
@@ -1091,7 +1091,7 @@ When the error messages are returned from Web Apps, you can see the messages int
 | Execute the app as                | Who has access to the app | Access          | Status code | Error messages                                   | Reason                                                                                                                 |
 | :-------------------------------- | :------------------------ | :-------------- | :---------- | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
 | User accessing the web app        | Only myself,<br>Anyone    | Owner,<br>Users | 200         | Authorization needed                             | Scopes for scripts of Web Apps are not authorized.                                                                     |
-| User accessing the web app,<br>Me | Only myself,<br>Anyone    | Owner,<br>Users | 200         | Meet Google Drive – One place for all your files | No access token.                                                                                                       |
+| User accessing the web app,<br>Me | Only myself,<br>Anyone    | Owner,<br>Users | 200         | Meet Google Drive 窶・One place for all your files | No access token.                                                                                                       |
 | For all settings                  | For all settings          | Owner,<br>Users | 200         | Error                                            | "Service invoked too many times in a short time: exec qps. Try Utilities.sleep(1000) between calls." is shown in Body. |
 | User accessing the web app,<br>Me | Only myself,<br>Anyone    | Owner,<br>Users | 401         | Unauthorized                                     | Bad access token.<br>No required scopes.                                                                               |
 | User accessing the web app,<br>Me | Anyone                    | Users           | 403         | Google Drive - Access Denied                     | Project of Web Apps is not shared with users.                                                                          |
@@ -1412,7 +1412,7 @@ This is from my gist. [https://gist.github.com/tanaikech/7a15164b1227e2ec2231fce
 
 ### Abstract
 
-In Google Apps Script, there is the Web Apps. When Web Apps is used, the users can execute Google Apps Script using HTML and Javascript. This can be applied to various applications. When the Web Apps is deployed with "Anyone", anyone can access the Web Apps. And, there is the case that Web Apps deployed with "Anyone" is required to be used. Under this condition, when 2 Factor Authentication (2FA) can be implemented, it is considered that the security can be higher and it leads to giving various directions for the applications using Web Apps. In this report, I would like to introduce the method for implementing the pseud 2FA for Web Apps deployed with “Anyone” using Google Apps Script.
+In Google Apps Script, there is the Web Apps. When Web Apps is used, the users can execute Google Apps Script using HTML and Javascript. This can be applied to various applications. When the Web Apps is deployed with "Anyone", anyone can access the Web Apps. And, there is the case that Web Apps deployed with "Anyone" is required to be used. Under this condition, when 2 Factor Authentication (2FA) can be implemented, it is considered that the security can be higher and it leads to giving various directions for the applications using Web Apps. In this report, I would like to introduce the method for implementing the pseud 2FA for Web Apps deployed with 窶廣nyone窶・using Google Apps Script.
 
 ### Introduction
 
@@ -1779,7 +1779,7 @@ The detailed information can be seen in [the official document](https://develope
 4. Please select **"Me"** for **"Execute as"**.
 5. Please select **"Anyone with Google account"** for **"Who has access"**.
 6. Please click "Deploy" button.
-7. Please run the function `getUr()` of the above script. By this, you can see your Web Apps URL. It’s like `https://script.google.com/macros/s/###/dev`. Please copy this URL. This URL is used on the client side. If the URL is not `dev`, please retrieve it on the script editor.
+7. Please run the function `getUr()` of the above script. By this, you can see your Web Apps URL. It窶冱 like `https://script.google.com/macros/s/###/dev`. Please copy this URL. This URL is used on the client side. If the URL is not `dev`, please retrieve it on the script editor.
 
 - In this case, the Web Apps is accessed as the developer mode with the endpoint of `https://script.google.com/macros/s/###/dev`. So, when you modify the Google Apps Script, it is not required to redeploy Web Apps. The latest script is always used when the Web Apps is accessed with the endpoint of `https://script.google.com/macros/s/###/dev`.
 
@@ -3261,7 +3261,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [How to assign UrlFetchApp with basic authorization to button?](https://stackoverflow.com/a/54622357)
 - [Protecting Cells of Spreadsheet that Users Copied from Your Google Drive to User's Google Drive using Google Apps Script](https://gist.github.com/tanaikech/847ea7e3e27a4a22004faa88d7b4dedb)
 - [Maintaining protected ranges while copying a file](https://stackoverflow.com/a/57066732)
-- [How to create webhook from Google Apps Script using the “exec” url rather than “dev” url. Exec returns 403 Error](https://stackoverflow.com/a/57426103)
+- [How to create webhook from Google Apps Script using the 窶彳xec窶・url rather than 窶彭ev窶・url. Exec returns 403 Error](https://stackoverflow.com/a/57426103)
 - [One Time Download for Google Drive](https://github.com/tanaikech/One_Time_Download_for_Google_Drive)
 - [Open a HTML file with data using Google Script](https://stackoverflow.com/q/58055279)
 - [Receiving Access-Control-Allow-Origin errors when submiting a form via Google Apps Script](https://stackoverflow.com/q/58773436)
@@ -3284,7 +3284,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [How can one write to a publicly available Google sheet (without authorization) in Python?](https://stackoverflow.com/q/61484573)
 - [Use path/slug after Web App's base url in Google Apps Script](https://stackoverflow.com/q/61729358)
 - [Is it possible to get fresh Google Slides presentation data in AppsScript?](https://stackoverflow.com/q/62166790)
-- [Error when running Youtube Data Service in App Scripts (js) – Daily Limit for Unauthenticated Use Exceeded](https://stackoverflow.com/q/62205747)
+- [Error when running Youtube Data Service in App Scripts (js) 窶・Daily Limit for Unauthenticated Use Exceeded](https://stackoverflow.com/q/62205747)
 - [Trouble accessing Google Sheet as a TSV file](https://stackoverflow.com/q/62611127/7108653)
 - [Get data from Google Sheets without Sheets API](https://stackoverflow.com/q/62732791)
 - [Retrieve text in namedRange with Google Docs API](https://stackoverflow.com/q/62797150/7108653)
@@ -3312,7 +3312,7 @@ Here, I would like to introduce the sample situations with Web Apps. Those are t
 - [How do I get/create a hyperlink in only part of a cell?](https://stackoverflow.com/q/66104825/7108653)
 - [How do I get sorted results from the Google Photos search API?](https://stackoverflow.com/q/66354884/7108653)
 - [Google Script HTML form from Library throws error Uncaught](https://stackoverflow.com/q/66711782/7108653)
-- [Import XML content from a cell – Google spreadsheets](https://stackoverflow.com/q/67053567/7108653)
+- [Import XML content from a cell 窶・Google spreadsheets](https://stackoverflow.com/q/67053567/7108653)
 - [How to update Chart Title via Google Sheet API (python)](https://stackoverflow.com/q/67377609/7108653)
 - [How to serve (PDF,binary) file from GAS web to a browser?](https://stackoverflow.com/q/67545478/7108653)
 - [How do I create an export to Google Sheet button on a web page?](https://stackoverflow.com/q/69465833/7108653)
