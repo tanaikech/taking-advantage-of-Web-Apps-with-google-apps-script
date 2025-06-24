@@ -84,9 +84,9 @@ Follow these steps to deploy the web app in the script editor:
 2.  Click "Select type" \> "Web App." The dialog shown above will appear.
 3.  Enter the web app's information in the fields under "Deployment configuration."
 4.  Select **"Execute as"**.
-      * Details for each value are in the following section. [Ref](situationsforwebapps)
+      * Details for each value are in the following section. [Ref](#situationsforwebapps)
 5.  Select **"Who has access to the app:"**.
-      * Details for each value are in the following section. [Ref](situationsforwebapps)
+      * Details for each value are in the following section. [Ref](#situationsforwebapps)
 6.  Click "Deploy."
 7.  In the script editor, click "Deploy" \> "Test deployments" in the top right.
 8.  Copy the web app URL, which will be similar to `https://script.google.com/macros/s/###/exec`. This URL can be accessed from outside of Google.
