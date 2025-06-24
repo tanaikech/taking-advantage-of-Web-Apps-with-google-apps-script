@@ -3220,7 +3220,15 @@ In May and June 2025, it was confirmed that Google Apps Script Web Apps can be e
 ### Agent2Agent (A2A) Protocol Server
 
 * [A2AApp](https://github.com/tanaikech/A2AApp): GitHub
-  ![](images/applicationsforai_fig1.jpg)
+
+  ```mermaid
+  flowchart TD
+    A[A2A client]
+    A --> |Google Sheets Manager Agent| B[A2A server 1]
+    A --> |Google Drive Manager Agent| C[A2A server 2]
+    A --> |Google Calendar Manager Agent| D[A2A server 3]
+    A --> |APIs Manager Agent| E[A2A server 4]
+  ```
 
 * [Building Agent2Agent (A2A) Server with Google Apps Script](https://medium.com/google-cloud/building-agent2agent-a2a-server-with-google-apps-script-d3efd32c7ca7)
 * [Enabling Collaborative Agent Systems through Google Apps Script-based Agent2Agent (A2A) Network](https://medium.com/google-cloud/enabling-collaborative-agent-systems-through-google-apps-script-based-agent2agent-a2a-network-19e3d0472eaa)
