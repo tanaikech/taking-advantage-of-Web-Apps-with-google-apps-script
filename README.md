@@ -983,6 +983,8 @@ This will return the following result:
 {"contextPath":"","queryString":"access_token=###"},"pathInfo":"sample.txt","parameters":{"access_token":["###"]},"contentLength":-1}
 ```
 
+By the way, when this approach of `pathInfo` is used, the Web Apps can also be used as the A2A server. [Ref](https://github.com/tanaikech/A2AApp?tab=readme-ov-file#pattern-1)
+
 ---
 
 <a name="checklog"></a>
