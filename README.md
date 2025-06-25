@@ -321,7 +321,7 @@ For example, in **Situation 5**, the Web App's script runs as each user (both th
 
 ## Access Token for Accessing Web Apps
 
-* When a Web App is deployed with **"`Who has access to the app:` Only myself`"** or **"`Who has access to the app: Anyone with Google account`"** by the owner, both the owner and client users must access and run the Web App's script using their own access token.
+* When a Web App is deployed with **"`Who has access to the app: Only myself`"** or **"`Who has access to the app: Anyone with Google account`"** by the owner, both the owner and client users must access and run the Web App's script using their own access token.
     * At least one Drive API scope must be included in the access token. Examples include:
         * `https://www.googleapis.com/auth/drive.readonly`
         * `https://www.googleapis.com/auth/drive.files`
