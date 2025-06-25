@@ -161,16 +161,16 @@ For detailed instructions, please refer to [https://gist.github.com/tanaikech/eb
    - "Who has access to the app:": **Only myself**
 1. **Situation 2**
    - "Execute the app as:" : **Me**
-   - "Who has access to the app:": **Anyone**
+   - "Who has access to the app:": **Anyone with Google account**
 1. **Situation 3**
    - "Execute the app as:" : **Me**
-   - "Who has access to the app:": **Anyone, even anonymous**
+   - "Who has access to the app:": **Anyone**
 1. **Situation 4**
    - "Execute the app as:" : **User accessing the web app**
    - "Who has access to the app:": **Only myself**
 1. **Situation 5**
    - "Execute the app as:" : **User accessing the web app**
-   - "Who has access to the app:": **Anyone**
+   - "Who has access to the app:": **Anyone with Google account**
 
 # Understanding Access and Interaction
 
@@ -321,7 +321,7 @@ For example, in **Situation 5**, the Web App's script runs as each user (both th
 
 ## Access Token for Accessing Web Apps
 
-* When a Web App is deployed with **"`Who has access to the app:` Only myself`"** or **"`Who has access to the app:` Anyone`"** by the owner, both the owner and client users must access and run the Web App's script using their own access token.
+* When a Web App is deployed with **"`Who has access to the app:` Only myself`"** or **"`Who has access to the app: Anyone with Google account`"** by the owner, both the owner and client users must access and run the Web App's script using their own access token.
     * At least one Drive API scope must be included in the access token. Examples include:
         * `https://www.googleapis.com/auth/drive.readonly`
         * `https://www.googleapis.com/auth/drive.files`
@@ -329,9 +329,9 @@ For example, in **Situation 5**, the Web App's script runs as each user (both th
     * Even if the server script uses scopes other than those for Drive API, these additional scopes are not required to be included in the access token. This is because the use of other scopes is authorized through the browser before accessing the Web App. This means that when making GET or POST requests to the Web App, only Drive API scopes are required.
     * For instance, when accessing a Web App using Google Apps Script, if you use `{"Authorization": "Bearer " + ScriptApp.getOAuthToken()}` in the headers and encounter an `<TITLE>Unauthorized</TITLE>` error, check the scopes defined in your script editor. If `https://www.googleapis.com/auth/drive` is not included, you can add it by, for example, placing `// DriveApp.getFiles()` in your script **as a comment**. The script editor will then automatically include the `https://www.googleapis.com/auth/drive` scope.
 
-* If no scopes are used in the Web App's scripts, the owner and client users can run the script without browser-based scope authorization. However, an access token is still required to access the Web App if it's deployed as **"`Who has access to the app:` Only myself`"** or **"`Who has access to the app:` Anyone`"**.
+* If no scopes are used in the Web App's scripts, the owner and client users can run the script without browser-based scope authorization. However, an access token is still required to access the Web App if it's deployed as **"`Who has access to the app:` Only myself`"** or **"`Who has access to the app: Anyone with Google account`"**.
 
-* Only when the Web App is deployed as **"`Who has access to the app:` Anyone, even anonymous`"** can the owner and client users access the Web App without an access token.
+* Only when the Web App is deployed as **"`Who has access to the app: Anyone`"** can the owner and client users access the Web App without an access token.
 
 ---
 
@@ -1014,7 +1014,7 @@ const doPost = (e) => {
 };
 ```
 
-  - This Web App is deployed with `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+  - This Web App is deployed with `Execute the app as: Me` and `Who has access to the app: Anyone`.
 
 #### 2. Sample Google Apps Script Project Types
 
@@ -1065,9 +1065,9 @@ The following table summarizes where logs can be found under different condition
 
 From the above results, the following conclusions were drawn:
 
-  - If you are using a default Google Apps Script project without linking a GCP project, to retrieve logs from requests to your Web App, you must access the Web App using an access token. This applies even when the Web App is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+  - If you are using a default Google Apps Script project without linking a GCP project, to retrieve logs from requests to your Web App, you must access the Web App using an access token. This applies even when the Web App is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone`.
 
-  - If you are using a Google Apps Script project with a linked GCP project, all user access logs to the Web App can be retrieved in Stackdriver. This is true even when the Web App is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+  - If you are using a Google Apps Script project with a linked GCP project, all user access logs to the Web App can be retrieved in Stackdriver. This is true even when the Web App is deployed as `Execute the app as: Me` and `Who has access to the app: Anyone`.
 
   - In all experimental scenarios, logs generated by `Logger.log` were not visible.
 
@@ -1085,11 +1085,11 @@ When the error messages are returned from Web Apps, you can see the messages int
 
 | Execute the app as                | Who has access to the app | Access          | Status code | Error messages                                   | Reason                                                                                                                 |
 | :-------------------------------- | :------------------------ | :-------------- | :---------- | :----------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
-| User accessing the web app        | Only myself,<br>Anyone    | Owner,<br>Users | 200         | Authorization needed                             | Scopes for scripts of Web Apps are not authorized.                                                                     |
-| User accessing the web app,<br>Me | Only myself,<br>Anyone    | Owner,<br>Users | 200         | Meet Google Drive 窶・One place for all your files | No access token.                                                                                                       |
+| User accessing the web app        | Only myself,<br>Anyone with Google account    | Owner,<br>Users | 200         | Authorization needed                             | Scopes for scripts of Web Apps are not authorized.                                                                     |
+| User accessing the web app,<br>Me | Only myself,<br>Anyone with Google account    | Owner,<br>Users | 200         | Meet Google Drive 窶・One place for all your files | No access token.                                                                                                       |
 | For all settings                  | For all settings          | Owner,<br>Users | 200         | Error                                            | "Service invoked too many times in a short time: exec qps. Try Utilities.sleep(1000) between calls." is shown in Body. |
-| User accessing the web app,<br>Me | Only myself,<br>Anyone    | Owner,<br>Users | 401         | Unauthorized                                     | Bad access token.<br>No required scopes.                                                                               |
-| User accessing the web app,<br>Me | Anyone                    | Users           | 403         | Google Drive - Access Denied                     | Project of Web Apps is not shared with users.                                                                          |
+| User accessing the web app,<br>Me | Only myself,<br>Anyone with Google account    | Owner,<br>Users | 401         | Unauthorized                                     | Bad access token.<br>No required scopes.                                                                               |
+| User accessing the web app,<br>Me | Anyone with Google account                    | Users           | 403         | Google Drive - Access Denied                     | Project of Web Apps is not shared with users.                                                                          |
 | User accessing the web app,<br>Me | Only myself               | Users           | 404         | Google Drive -- Page Not Found                   | Users cannot access.                                                                                                   |
 
 ---
@@ -1102,7 +1102,7 @@ Here, I'll explain the status codes returned from Google Apps Script Web Apps.
 
 ### Preparation
 
-For this experiment, a Web App was deployed with "Execute the app as" set to `Me` and "Who has access to the app" set to `Anyone, even anonymous`. The sample script for the Web App is as follows:
+For this experiment, a Web App was deployed with "Execute the app as" set to `Me` and "Who has access to the app" set to `Anyone`. The sample script for the Web App is as follows:
 
 ```javascript
 function doGet(e) {
@@ -1176,7 +1176,7 @@ A status code of `403` was returned. From these results, the following conclusio
 
 One application where this situation is relevant is when registering a webhook with [Trello's REST API](https://developers.trello.com/reference/).
 
-When a Web App deployed with "Execute the app as: Me" and "Who has access to the app: Anyone, even anonymous" is registered as a webhook, an error like `{"message":"URL (https://script.google.com/macros/s/###/exec) did not return 200 status code, got 403","error":"ERROR"}` occurs. This error is due to the situation described above.
+When a Web App deployed with "`Execute the app as: Me`" and "`Who has access to the app: Anyone`" is registered as a webhook, an error like `{"message":"URL (https://script.google.com/macros/s/###/exec) did not return 200 status code, got 403","error":"ERROR"}` occurs. This error is due to the situation described above.
 
 As a workaround for registration, you can use the following flow:
 
@@ -1185,7 +1185,7 @@ As a workaround for registration, you can use the following flow:
       * "Who has access to the app": `Only myself`
   * **After retrieving the response** (e.g., `{"id":"###","description":"sample","idModel":"###","callbackURL":"https://script.google.com/macros/s/###/exec","active":true}`), reset the Web App's permissions as follows:
       * "Execute the app as": `Me`
-      * "Who has access to the app": `Anyone, even anonymous`
+      * "Who has access to the app": `Anyone`
 
 By following this flow, the webhook can be successfully used.
 
@@ -1211,7 +1211,7 @@ Logger.log(res.getContentText());
 
 ## CORS in Web Apps
 
-This section explores **Cross-Origin Resource Sharing (CORS)** in Google Apps Script Web Apps. We'll examine various scenarios where Web Apps are accessed via `GET` and `POST` methods using JavaScript. For these examples, the Web App settings are configured as `Execute the app as: Me` and `Who has access to the app: Anyone, even anonymous`.
+This section explores **Cross-Origin Resource Sharing (CORS)** in Google Apps Script Web Apps. We'll examine various scenarios where Web Apps are accessed via `GET` and `POST` methods using JavaScript. For these examples, the Web App settings are configured as `Execute the app as: Me` and `Who has access to the app: Anyone`.
 
 The following client-side JavaScript was used for testing:
 
@@ -2287,7 +2287,7 @@ These are the sample scripts by the various languages for requesting to [Web App
 - Setting for Web Apps is as follows.
 
   - **`Execute the app as: Me`**
-  - **`Who has access to the app: Anyone, even anonymous`**
+  - **`Who has access to the app: Anyone`**
   - In this settings, no access token is required. When you use other settings, it might be required to use the access token. About this, please check [here](https://github.com/tanaikech/taking-advantage-of-Web-Apps-with-google-apps-script#5-situations-for-web-apps).
 
 <a name="curl"></a>
