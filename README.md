@@ -346,12 +346,12 @@ You can [manually share the project](https://support.google.com/drive/answer/249
 Alternatively, you can share the project using Google Apps Script. The following sample script demonstrates how to share the project with client users. Replace `"### Client user's email address ###"` with the actual email and `"### fileId of project ###"` with the project's file ID. For a container-bound script with a Spreadsheet, the file ID is that of the Spreadsheet. If you wish to send a notification email when the project is shared, change `sendNotificationEmail=false` to `sendNotificationEmail=true`.
 
 ```javascript
-// DriveApp.getFiles() // This comment helps include the "[https://www.googleapis.com/auth/drive](https://www.googleapis.com/auth/drive)" scope. Alternatively, you can define scopes in the project's manifest file.
+// DriveApp.getFiles() // This comment helps include the "https://www.googleapis.com/auth/drive" scope. Alternatively, you can define scopes in the project's manifest file.
 var email = "### Client user's email address ###";
 var fileId = "### fileId of project ###";
 
 var url =
-  "[https://www.googleapis.com/drive/v3/files/](https://www.googleapis.com/drive/v3/files/)" +
+  "https://www.googleapis.com/drive/v3/files/" +
   fileId +
   "/permissions?sendNotificationEmail=false";
 var params = {
