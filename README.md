@@ -782,7 +782,7 @@ We'll use `curl` as a sample client.
 ##### Sample curl
 
 ```bash
-$ curl -L "[https://script.google.com/macros/s/#####/exec?key1=value1&key2=value2&key3=value3](https://script.google.com/macros/s/#####/exec?key1=value1&key2=value2&key3=value3)"
+$ curl -L "https://script.google.com/macros/s/#####/exec?key1=value1&key2=value2&key3=value3"
 ```
 
 ##### Result
@@ -811,7 +811,7 @@ $ curl -L "[https://script.google.com/macros/s/#####/exec?key1=value1&key2=value
 ##### Sample curl
 
 ```bash
-$ curl -L -d "key1=value1" -d "key2=value2" "[https://script.google.com/macros/s/#####/exec?key3=value3](https://script.google.com/macros/s/#####/exec?key3=value3)"
+$ curl -L -d "key1=value1" -d "key2=value2" "https://script.google.com/macros/s/#####/exec?key3=value3"
 ```
 
 ##### Result
@@ -846,7 +846,7 @@ $ curl -L -d "key1=value1" -d "key2=value2" "[https://script.google.com/macros/s
 ##### Sample curl
 
 ```bash
-$ curl -L -d '{"key1": "value1", "key2": "value2"}' "[https://script.google.com/macros/s/#####/exec?key3=value3](https://script.google.com/macros/s/#####/exec?key3=value3)"
+$ curl -L -d '{"key1": "value1", "key2": "value2"}' "https://script.google.com/macros/s/#####/exec?key3=value3"
 ```
 
 ##### Result
@@ -879,7 +879,7 @@ $ curl -L -d '{"key1": "value1", "key2": "value2"}' "[https://script.google.com/
 ##### Sample curl
 
 ```bash
-$ curl -L -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' "[https://script.google.com/macros/s/#####/exec?key3=value3](https://script.google.com/macros/s/#####/exec?key3=value3)"
+$ curl -L -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "value2"}' "https://script.google.com/macros/s/#####/exec?key3=value3"
 ```
 
 ##### Result
@@ -914,7 +914,7 @@ $ curl -L -H "Content-Type: application/json" -d '{"key1": "value1", "key2": "va
 In this pattern, a filename is added to the URL:
 
 ```
-[https://script.google.com/macros/s/#####/exec/fileName.txt](https://script.google.com/macros/s/#####/exec/fileName.txt)
+https://script.google.com/macros/s/#####/exec/fileName.txt
 ```
 
 **Note that authorization is required in this case.** When using the `curl` command, you must include an access token as follows:
@@ -924,7 +924,7 @@ $ curl -L \
   -H "Authorization: Bearer ###" \
   -H "Content-Type: application/json" \
   -d '{"key1": "value1", "key2": "value2"}' \
-  "[https://script.google.com/macros/s/#####/exec/fileName.txt?key3=value3](https://script.google.com/macros/s/#####/exec/fileName.txt?key3=value3)"
+  "https://script.google.com/macros/s/#####/exec/fileName.txt?key3=value3"
 ```
 
 Alternatively, if you are already logged into a Google account, you can directly access the URL. However, this will use the GET method.
@@ -974,7 +974,7 @@ If you wish to access `https://script.google.com/macros/s/###/exec/sample.txt` u
 The sample `curl` command is as follows:
 
 ```bash
-curl -L "[https://script.google.com/macros/s/###/exec/sample.txt?access_token=###](https://script.google.com/macros/s/###/exec/sample.txt?access_token=###)"
+curl -L "https://script.google.com/macros/s/###/exec/sample.txt?access_token=###"
 ```
 
 This will return the following result:
@@ -1118,8 +1118,8 @@ First, the status code was checked using Google Apps Script. The deployed Web Ap
 
 ```javascript
 function myFunction() {
-  var url_exec = "[https://script.google.com/macros/s/###/exec](https://script.google.com/macros/s/###/exec)";
-  var url_dev = "[https://script.google.com/macros/s/###/dev](https://script.google.com/macros/s/###/dev)";
+  var url_exec = "https://script.google.com/macros/s/###/exec";
+  var url_dev = "https://script.google.com/macros/s/###/dev";
   var res = UrlFetchApp.fetchAll([{ url: url_exec }, { url: url_dev }]);
   res.forEach(function (e) {
     Logger.log(e.getResponseCode());
@@ -1164,7 +1164,7 @@ Why was a status code of `200` returned for both `--include` and `--head` option
 As a test case, when an access token is used for the `dev` endpoint with the following cURL command:
 
 ```bash
-curl -sL --head -H "Authorization: Bearer ###" -o /dev/null -w "%{http_code}" "[https://script.google.com/macros/s/###/dev](https://script.google.com/macros/s/###/dev)"
+curl -sL --head -H "Authorization: Bearer ###" -o /dev/null -w "%{http_code}" "https://script.google.com/macros/s/###/dev"
 ```
 
 A status code of `403` was returned. From these results, the following conclusions can be drawn:
@@ -1194,9 +1194,9 @@ By following this flow, the webhook can be successfully used.
 This is a sample Google Apps Script for registering a webhook URL:
 
 ```javascript
-var url = "[https://api.trello.com/1/tokens/###/webhooks/?key=###](https://api.trello.com/1/tokens/###/webhooks/?key=###)";
+var url = "https://api.trello.com/1/tokens/###/webhooks/?key=###";
 var payload = {
-  callbackURL: "[https://script.google.com/macros/s/###/exec](https://script.google.com/macros/s/###/exec)",
+  callbackURL: "https://script.google.com/macros/s/###/exec",
   idModel: "###",
   description: "sample",
 };
@@ -1251,7 +1251,7 @@ const doPost = (e) => {};
 
 Both `GET` and `POST` requests return the following response, indicating a **CORS error**:
 
-> Access to fetch at '[https://script.google.com/macros/s/\#\#\#/exec](https://script.google.com/macros/s/###/exec)' from origin 'https://\#\#\#script.googleusercontent.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+> Access to fetch at '`https://script.google.com/macros/s/\#\#\#/exec`' from origin '`https://\#\#\#script.googleusercontent.com`' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 
 ### Sample Script 2
 
@@ -1266,7 +1266,7 @@ const doPost = (e) => HtmlService.createHtmlOutput();
 
 Both `GET` and `POST` requests return the same response as Sample Script 1, indicating a **CORS error**:
 
-> Access to fetch at '[https://script.google.com/macros/s/\#\#\#/exec](https://script.google.com/macros/s/###/exec)' from origin 'https://\#\#\#script.googleusercontent.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+> Access to fetch at '`https://script.google.com/macros/s/\#\#\#/exec`' from origin '`https://\#\#\#script.googleusercontent.com`' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
 
 ### Sample Script 3
 
@@ -2164,8 +2164,7 @@ var params = {
   headers: { Authorization: "Bearer " + ScriptApp.getOAuthToken() },
   muteHttpExceptions: true,
 };
-var url =
-  "https://script.google.com/macros/s/#####/exec?key1=value1&key2=value2&key3=value3";
+var url = "https://script.google.com/macros/s/#####/exec?key1=value1&key2=value2&key3=value3";
 var res = UrlFetchApp.fetch(url, params);
 Logger.log(res);
 ```
