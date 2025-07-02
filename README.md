@@ -9,7 +9,7 @@
 - [Description](#description)
 - **Web App Deployment & Configuration**
   - [Deploy Web Apps](#deploywebApps)
-  - [Redeploying Web Apps without Changing URL of Web Apps for new IDE](#redeploy)
+  - [Redeploying Web Apps without Changing URL of Web Apps](#redeploy)
   - [5 situations for Web Apps](#situationsforwebapps)
 - **Understanding Access and Interaction**
   - [How to access to Web Apps](#howtoaccesstowebapps)
@@ -91,7 +91,7 @@ Follow these steps to deploy the web app in the script editor:
 7.  In the script editor, click "Deploy" \> "Test deployments" in the top right.
 8.  Copy the web app URL, which will be similar to `https://script.google.com/macros/s/###/exec`. This URL can be accessed from outside of Google.
 
-**It is important to note that whenever you modify the Google Apps Script for the web app, you must deploy it as a new version.** This ensures the changes are reflected in the web app. For more details on this, please refer to my report: "[Redeploying Web Apps without Changing URL of Web Apps for new IDE](https://gist.github.com/tanaikech/ebf92d8f427d02d53989d6c3464a9c43)."
+**It is important to note that whenever you modify the Google Apps Script for the web app, you must deploy it as a new version.** This ensures the changes are reflected in the web app. For more details on this, please refer to my report: "[Redeploying Web Apps without Changing URL of Web Apps](https://gist.github.com/tanaikech/ebf92d8f427d02d53989d6c3464a9c43)."
 
 ---
 
@@ -1623,7 +1623,7 @@ function doGet(e) {
 
 The detailed information can be seen at [the official document](https://developers.google.com/apps-script/guides/web#deploy_a_script_as_a_web_app).
 
-Please set this using the new IDE of the script editor.
+Please set this using the script editor.
 
 1. On the script editor, at the top right of the script editor, please click "click Deploy" -> "New deployment".
 2. Please click "Select type" -> "Web App".
@@ -1637,7 +1637,7 @@ Please set this using the new IDE of the script editor.
 
 - **When you modify the Google Apps Script, please modify the deployment as a new version. By this, the modified script is reflected in Web Apps. Please be careful about this.**
 
-- You can see the detail of this in the report "[Redeploying Web Apps without Changing URL of Web Apps for new IDE](https://gist.github.com/tanaikech/ebf92d8f427d02d53989d6c3464a9c43)".
+- You can see the detail of this in the report "[Redeploying Web Apps without Changing URL of Web Apps](https://gist.github.com/tanaikech/ebf92d8f427d02d53989d6c3464a9c43)".
 
 #### 4. Testing
 
