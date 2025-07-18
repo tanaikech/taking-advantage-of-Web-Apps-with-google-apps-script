@@ -3214,6 +3214,15 @@ In May and June 2025, it was confirmed that Google Apps Script Web Apps can be e
 
 #### Gemini CLI with MCP server
 
+```mermaid
+flowchart TD
+    subgraph AA[Gemini CLI]
+        direction TB
+        AI[AI agent] --> Gemini
+    end
+    Gemini --> A[MCP Server]
+```
+
 * [Gemini CLI with MCP Server Built by Web Apps of Google Apps Script](https://medium.com/google-cloud/gemini-cli-with-mcp-server-built-by-web-apps-of-google-apps-script-47046afdf3be)
 * [Gemini CLI with MCP Server: Expanding Possibilities with Google Apps Script](https://medium.com/google-cloud/gemini-cli-with-mcp-server-expanding-possibilities-with-google-apps-script-4626c661ac81)
 * [Processing File Content Using Gemini CLI with an MCP Server Built by Google Apps Script](https://medium.com/google-cloud/processing-file-content-using-gemini-cli-with-an-mcp-server-built-by-google-apps-script-86e2675e4d6b)
