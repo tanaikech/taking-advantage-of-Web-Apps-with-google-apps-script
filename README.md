@@ -3212,6 +3212,15 @@ In May and June 2025, it was confirmed that Google Apps Script Web Apps can be e
 * [Image Transfer: MCP Server (Web Apps/Google Apps Script) to MCP Client (Gemini/Python)](https://medium.com/google-cloud/image-transfer-mcp-server-web-apps-google-apps-script-to-mcp-client-gemini-python-1fb22eb89dd2)
 * [Gmail Processing using MCP Network Powered by Google Apps Script](https://medium.com/google-cloud/gmail-processing-using-mcp-network-powered-by-google-apps-script-5ede2a25c94e)
 
+#### Gemini CLI with MCP server
+
+* [Gemini CLI with MCP Server Built by Web Apps of Google Apps Script](https://medium.com/google-cloud/gemini-cli-with-mcp-server-built-by-web-apps-of-google-apps-script-47046afdf3be)
+* [Gemini CLI with MCP Server: Expanding Possibilities with Google Apps Script](https://medium.com/google-cloud/gemini-cli-with-mcp-server-expanding-possibilities-with-google-apps-script-4626c661ac81)
+* [Processing File Content Using Gemini CLI with an MCP Server Built by Google Apps Script](https://medium.com/google-cloud/processing-file-content-using-gemini-cli-with-an-mcp-server-built-by-google-apps-script-86e2675e4d6b)
+* [Gemini CLI: Featuring an Enhanced ToolsForMCPServer](https://medium.com/google-cloud/gemini-cli-featuring-an-enhanced-toolsformcpserver-7afaadfb5cfa)
+* [Next-Level Data Automation: Gemini CLI, Google Sheets, and MCP](https://medium.com/google-cloud/next-level-data-automation-gemini-cli-google-sheets-and-mcp-e6628a382e90)
+* [Managing Google Docs, Sheets, and Slides by Natural Language with Gemini CLI and MCP](https://medium.com/google-cloud/managing-google-docs-sheets-and-slides-by-natural-language-with-gemini-cli-and-mcp-62f4dfbef2d5)
+
 ### Agent2Agent (A2A) Protocol Server
 
 * [A2AApp](https://github.com/tanaikech/A2AApp): GitHub
